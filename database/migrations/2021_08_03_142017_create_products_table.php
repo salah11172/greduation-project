@@ -21,6 +21,7 @@ class CreateProductsTable extends Migration
             $table->mediumText('details');
             $table->mediumText('description');
             $table->integer('quantity');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();
         });
     }
