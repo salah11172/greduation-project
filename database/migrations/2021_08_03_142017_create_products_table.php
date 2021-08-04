@@ -21,6 +21,8 @@ class CreateProductsTable extends Migration
             $table->mediumText('details');
             $table->mediumText('description');
             $table->integer('quantity');
+           // $table->unsignedBigInteger('category_id');
+           // $table->foreign('category_id')->references('id')->on('categories')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
