@@ -15,10 +15,14 @@ class CreateOrderItemsTable extends Migration
     {
         Schema::create('order_items', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->foreign('product_id')->references('id')->on('products')
-                ->onUpdate('cascade')->onDelete('set null');
-            $table->foreign('order_id')->references('id')->on('orders')
-                ->onUpdate('cascade')->onDelete('set null');
+            
+            
+                // $table->foreignId('order_id')
+                // ->constrained('orders');
+               
+                // $table->foreignId('product_id')
+                // ->constrained('products');
+              
             $table->integer('quantity');
             $table->integer('price');
             $table->string('name');

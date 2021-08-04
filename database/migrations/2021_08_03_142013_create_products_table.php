@@ -18,10 +18,13 @@ class CreateProductsTable extends Migration
             $table->string('image');
             $table->string('price');
             $table->string('name');
+            // // $table->foreignId('category_id')
+            //     ->constrained('categories');
             $table->mediumText('details');
             $table->mediumText('description');
             $table->integer('quantity');
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            
+                
             $table->timestamps();
         });
     }
