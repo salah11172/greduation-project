@@ -119,7 +119,7 @@
 									<a href="cart.html" class="link-term mercado-item-title">Cart</a>
 								</li>
 								<li class="menu-item">
-									<a href="contact-us.html" class="link-term mercado-item-title">Contact Us</a>
+									<a href="{{route('comment.create')}}" class="link-term mercado-item-title">Contact Us</a>
 								</li>								
 							</ul>
 						</div>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('layout.layout');
 });
+
+Route::get('contact-us/contact', [CommentController::class, 'index'])->name('comment.index');
+Route::get('contact-us/contact/create', [CommentController::class, 'create'])->name('comment.create');
+Route::post('contact/store', [CommentController::class, 'store'])->name('comment.store');
+
