@@ -19,7 +19,7 @@
 <body class="inner-page about-us ">
 
 	<!-- mobile menu -->
-    <div class="mercado-clone-wrap" ">
+    <div class="mercado-clone-wrap">
         <div class="mercado-panels-actions-wrap">
             <a class="mercado-close-btn mercado-close-panels"  href="#">x</a>
         </div>
@@ -57,19 +57,22 @@
 
 						<div class="wrap-logo-top left-section">
 
-							<a href="index.html" class="link-to-home"><img src="{{ asset('images/logo.PNG') }}" alt="mercado"></a>
+						//	<a href="index.html" class="link-to-home"><img src="{{asset('/images/logo.PNG')}}" alt="mobishop"></a>
+
+
+						//	<a href="index.html" class="link-to-home"><img src="{{ asset('images/logo.PNG') }}" alt="mercado"></a>
 
 							<a href="{{route('shopproduct')}}" class="link-to-home"><img src="{{ asset('images/logo.PNG') }}" alt="mercado"></a>
+
 
 						</div>
 
 						<div class="wrap-search center-section">
 							<div class="wrap-search-form">
-								<form action="{{route('searchproducts')}}" method="POST" id="form-search-top" name="form-search-top">
-									@csrf
+								<form action="#" id="form-search-top" name="form-search-top">
 									<input type="text" name="search" value="" placeholder="Search here...">
-									<button name="sad" form="form-search-top" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-									
+									<button form="form-search-top" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+								
 								</form>
 							</div>
 						</div>
@@ -85,10 +88,10 @@
 								</a>
 							</div>
 							<div class="wrap-icon-section minicart">
-								<a href="#" class="link-direction">
+								<a href="{{route('cart.list')}}" class="link-direction">
 									<i class="fa fa-shopping-basket" aria-hidden="true"></i>
 									<div class="left-info">
-										<span class="index">#items</span>
+										<span class="index">{{ Cart::getTotalQuantity()}} items</span>
 										<span class="title">CART</span>
 									</div>
 								</a>
@@ -112,16 +115,16 @@
 						<div class="container">
 							<ul class="nav primary clone-main-menu" id="mercado_main" data-menuname="Main menu" >
 								<li class="menu-item home-icon">
-									<a href="{{route('shopproduct')}}" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
+									<a href="/" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
 								</li>
 								<li class="menu-item">
-									<a href="about-us.html" class="link-term mercado-item-title">About Us</a>
+									<a href="{{route('about_us.about')}}" class="link-term mercado-item-title">About Us</a>
 								</li>
 								<li class="menu-item">
-									<a href="{{route('shopproduct')}}" class="link-term mercado-item-title">Shop</a>
+									<a href="{{route('products.list')}}" class="link-term mercado-item-title">Shop</a>
 								</li>
 								<li class="menu-item">
-									<a href="{{route('cartpageshow')}}" class="link-term mercado-item-title">Cart</a>
+									<a href="{{route('cart.list')}}" class="link-term mercado-item-title">Cart</a>
 								</li>
 								<li class="menu-item">
 									<a href="{{route('comment.create')}}" class="link-term mercado-item-title">Contact Us</a>
@@ -129,7 +132,6 @@
 										
 									<a href="contact-us.html" class="link-term mercado-item-title">Contact Us</a>
 								</li>	
-								
 
 								<li class="menu-item">
 									<a href="{{route('gotoadmin')}}" class="link-term mercado-item-title">admindashborad</a>

@@ -1,6 +1,11 @@
 <?php
 
 
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\admin\AdminCategortycontroller;
+use App\Http\Controllers\admin\AdminProductnController;
+
+
 use App\Http\Controllers\admin\AdminCategortycontroller;
 use App\Http\Controllers\admin\AdminProductnController;
  
@@ -9,6 +14,8 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\cart\CartController;
 use App\Http\Controllers\shop\ShopCnotrller;
 use App\Models\Product;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -56,21 +63,20 @@ Route::get("categotory /delete/{categoryid}",[AdminCategortycontroller::class,"d
 Route::get("categotory /edit/{categoryid}",[AdminCategortycontroller::class,"edit"])->name("admineditcategry");
 Route::post("categotory /update/{categoryid}",[AdminCategortycontroller::class,"update"])->name("adminupdatecategory");
 
-/////shop routes 
+
+//////
+
+Route::get('/shop', [ProductController::class, 'productList'])->name('products.list');
+Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');
+Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store');
+Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
+Route::post('remove', [CartController::class, 'removeCart'])->name('cart.remove');
+Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
 
 
-Route::get("shopcategorylist",[ShopCnotrller::class,"categorylist"])->name("shopproduct");
-Route::get("categoryproducts/{categoryid}",[ShopCnotrller::class,"getcategoryproduct"])->name("categoryprodcuts");
-ROUTE::post("serachcategory",[ShopCnotrller::class,"serach"])->name("searchproducts");
-ROUTE::get("productdetails/{productid}",[ShopCnotrller::class,"showproduct"])->name("productdetails");
+// About Us
 
-
-
-////cart
-
-Route::get("cartshow",[CartController::class,"index"])->name("cartpageshow");
-
-
+Route::get('/aboutus', [AboutController::class, 'aboutus'])->name('about_us.about');
 
 
 
