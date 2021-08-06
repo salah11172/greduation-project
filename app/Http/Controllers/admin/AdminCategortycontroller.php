@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class AdminCategortycontroller extends Controller
@@ -15,6 +16,7 @@ class AdminCategortycontroller extends Controller
     }
     public function create()
     {
+     
         return view("admin.category.create");
     }
     public function store(Request $req)
