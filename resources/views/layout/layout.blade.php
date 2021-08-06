@@ -56,7 +56,11 @@
 					<div class="mid-section main-info-area">
 
 						<div class="wrap-logo-top left-section">
+
+							<a href="index.html" class="link-to-home"><img src="{{ asset('images/logo.PNG') }}" alt="mercado"></a>
+
 							<a href="{{route('shopproduct')}}" class="link-to-home"><img src="{{ asset('images/logo.PNG') }}" alt="mercado"></a>
+
 						</div>
 
 						<div class="wrap-search center-section">
@@ -120,11 +124,15 @@
 									<a href="{{route('cartpageshow')}}" class="link-term mercado-item-title">Cart</a>
 								</li>
 								<li class="menu-item">
+									<a href="{{route('comment.create')}}" class="link-term mercado-item-title">Contact Us</a>
+								</li>								
+										
 									<a href="contact-us.html" class="link-term mercado-item-title">Contact Us</a>
 								</li>	
 								
+
 								<li class="menu-item">
-									<a href="{{route("gotoadmin")}}" class="link-term mercado-item-title">admindashborad</a>
+									<a href="{{route('gotoadmin')}}" class="link-term mercado-item-title">admindashborad</a>
 								</li>							
 							</ul>
 						</div>
