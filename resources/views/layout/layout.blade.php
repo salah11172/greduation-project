@@ -5,11 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title></title>
-<<<<<<< HEAD:resources/views/layout/layout.blade.php
         <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/logo.PNG') }}">
-=======
-        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/favicon.ico') }}">
->>>>>>> 332b274a7e6d22dc42d4a4453b54e7b727951bfb:login.html
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700,700italic,900,900italic&amp;subset=latin,latin-ext" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Open%20Sans:300,400,400italic,600,600italic,700,700italic&amp;subset=latin,latin-ext" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="{{ asset('/css/animate.css') }}">
@@ -60,19 +56,16 @@
 					<div class="mid-section main-info-area">
 
 						<div class="wrap-logo-top left-section">
-<<<<<<< HEAD:resources/views/layout/layout.blade.php
-							<a href="index.html" class="link-to-home"><img src="{{ asset('images/logo.PNG') }}" alt="mercado"></a>
-=======
-							<a href="index.html" class="link-to-home"><img src="{{asset('/images/logo.PNG')}}" alt="mobishop"></a>
->>>>>>> 332b274a7e6d22dc42d4a4453b54e7b727951bfb:login.html
+							<a href="{{route('shopproduct')}}" class="link-to-home"><img src="{{ asset('images/logo.PNG') }}" alt="mercado"></a>
 						</div>
 
 						<div class="wrap-search center-section">
 							<div class="wrap-search-form">
-								<form action="#" id="form-search-top" name="form-search-top">
+								<form action="{{route('searchproducts')}}" method="POST" id="form-search-top" name="form-search-top">
+									@csrf
 									<input type="text" name="search" value="" placeholder="Search here...">
-									<button form="form-search-top" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
-								
+									<button name="sad" form="form-search-top" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+									
 								</form>
 							</div>
 						</div>
@@ -115,20 +108,21 @@
 						<div class="container">
 							<ul class="nav primary clone-main-menu" id="mercado_main" data-menuname="Main menu" >
 								<li class="menu-item home-icon">
-									<a href="index.html" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
+									<a href="{{route('shopproduct')}}" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
 								</li>
 								<li class="menu-item">
 									<a href="about-us.html" class="link-term mercado-item-title">About Us</a>
 								</li>
 								<li class="menu-item">
-									<a href="#" class="link-term mercado-item-title">Shop</a>
+									<a href="{{route('shopproduct')}}" class="link-term mercado-item-title">Shop</a>
 								</li>
 								<li class="menu-item">
-									<a href="cart.html" class="link-term mercado-item-title">Cart</a>
+									<a href="{{route('cartpageshow')}}" class="link-term mercado-item-title">Cart</a>
 								</li>
 								<li class="menu-item">
 									<a href="contact-us.html" class="link-term mercado-item-title">Contact Us</a>
 								</li>	
+								
 								<li class="menu-item">
 									<a href="{{route("gotoadmin")}}" class="link-term mercado-item-title">admindashborad</a>
 								</li>							

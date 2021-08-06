@@ -15,18 +15,14 @@ class CreateOrderItemsTable extends Migration
     {
         Schema::create('order_items', function (Blueprint $table) {
             $table->bigIncrements('id');
-            
-            
-                // $table->foreignId('order_id')
-                // ->constrained('orders');
-               
-                // $table->foreignId('product_id')
-                // ->constrained('products');
-              
+            // $table->foreignId('order_id')
+            // ->constrained('orders');
+            // $table->foreignId('product_id')
+            // ->constrained('products');
             $table->integer('quantity');
             $table->integer('price');
             $table->string('name');
-		$table->string('color');
+            $table->string('color');
             $table->timestamps();
         });
     }

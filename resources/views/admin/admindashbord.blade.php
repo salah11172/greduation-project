@@ -1,8 +1,6 @@
 @extends("layout.layout")
 @section("content")
 <br>
-</div><!--end main products area-->
-
 
 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 sitebar">
     
@@ -14,8 +12,8 @@
                 <li class="list-item"><a class="filter-link " href="{{route('adminproductlist')}}">products</a></li>
                 <li class="list-item"><a class="filter-link " href="{{route('go_category_for_admin')}}">categories</a></li>
                 <li class="list-item"><a class="filter-link " href="#">user</a></li>
-                
             </ul>
         </div>
-    </div><!-- brand widget-->    
+    </div><!-- brand widget--> 
+    <br>   
 @endsection

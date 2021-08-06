@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -24,7 +25,8 @@ class AdminProductnController extends Controller
      */
     public function create()
     {
-        return view("admin.product.create");
+        $data=Category::all();
+        return view("admin.product.create",["dervied"=>$data]);
     }
     public function showtableproducts()
     {
@@ -50,15 +52,18 @@ class AdminProductnController extends Controller
             'quantity' => 'required',
             'price' => 'required',
         ]);
-        $imagenew=time() . '-' . $req->name . '.' . $req->image->extension(); 
-        $req->image->move(public_path("images",$imagenew));
+        $file_exsetention=$req->image->getClientOriginalExtension();
+        $filename=time() . "." . $file_exsetention;
+        $path='images/products';
+        $req->image->move($path,$filename);
+       
            Product::create([
               'name'=>$req->name,
               'details'=>$req->details,
               'description'=>$req->description,
               'quantity'=>$req->quantity,
               'price'=>$req->price,
-              'image'=>$imagenew,
+              'image'=>$filename,
               'categort_id'=>$req->categort_id
            ]);
         return redirect()->route("adminproductlist");

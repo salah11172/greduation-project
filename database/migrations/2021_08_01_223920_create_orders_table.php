@@ -19,10 +19,10 @@ class CreateOrdersTable extends Migration
     
 		$table->integer('phone');
 		$table->integer('total-price');
-	      $table->timestamp('order-date');
-            $table->timestamp('ship-date')->nullable();
-            // $table->foreignId('user_id')->constrained('users');
-            $table->timestamps();
+	    $table->timestamp('order-date');
+         $table->timestamp('ship-date')->nullable();
+         // $table->foreignId('user_id')->constrained('users');
+        $table->timestamps();
         });
     }
 
