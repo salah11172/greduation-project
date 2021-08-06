@@ -14,9 +14,8 @@ class CommentController extends Controller
         $comment = Contact::paginate(2);
 
         //dd('hhhh');
-        return view('contact-us/index',['commentCollection' =>$comment]);
+        return view('admin/comment/index',["commentCollection"=>$comment]);
     }
-
 
 
     public function show(Contact $comment)
@@ -40,14 +39,15 @@ class CommentController extends Controller
         $requestData=$requestObj->all();
 
         $requestObj->validate([
-                'name' => 'required|min:3',
-                'email' => 'required |email',
+                'name' => 'required|min:3' ,
+                'email' => 'required |email |unique:contacts',
                 'phone' => 'required',
                 'comment' => 'required',
                 
             ],[
-                'name.required' => 'override this message',
-                'name.min' => 'this is a new minimum message',
+                'name.required' => 'please enter your name',
+                'name.min' => 'this field must be greater than 3 letters',
+                'email.unique'=>"this email already existed",
             ]);
 
 
@@ -61,9 +61,14 @@ class CommentController extends Controller
        // dd($requestData);
 
 return redirect()->route('comment.index');
-        
-
-        
+   
        
+    }
+
+    public function destroy($commentid)
+    {
+      Contact::find($commentid)->delete();
+       
+         return redirect()->route('comment.index')->with(["message"=>"comment has been deleted sucessfuuly"]);
     }
 }

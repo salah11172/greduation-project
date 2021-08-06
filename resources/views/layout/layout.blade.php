@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title></title>
-        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/favicon.ico') }}">
+        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/logo.PNG') }}">
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700,700italic,900,900italic&amp;subset=latin,latin-ext" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Open%20Sans:300,400,400italic,600,600italic,700,700italic&amp;subset=latin,latin-ext" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="{{ asset('/css/animate.css') }}">
@@ -56,7 +56,7 @@
 					<div class="mid-section main-info-area">
 
 						<div class="wrap-logo-top left-section">
-							<a href="index.html" class="link-to-home"><img src="{{asset('/images/logo.PNG')}}" alt="mobishop"></a>
+							<a href="index.html" class="link-to-home"><img src="{{ asset('images/logo.PNG') }}" alt="mercado"></a>
 						</div>
 
 						<div class="wrap-search center-section">
@@ -113,7 +113,7 @@
 									<a href="about-us.html" class="link-term mercado-item-title">About Us</a>
 								</li>
 								<li class="menu-item">
-									<a href="shop.html" class="link-term mercado-item-title">Shop</a>
+									<a href="#" class="link-term mercado-item-title">Shop</a>
 								</li>
 								<li class="menu-item">
 									<a href="cart.html" class="link-term mercado-item-title">Cart</a>
@@ -121,6 +121,10 @@
 								<li class="menu-item">
 									<a href="{{route('comment.create')}}" class="link-term mercado-item-title">Contact Us</a>
 								</li>								
+										
+								<li class="menu-item">
+									<a href="{{route('gotoadmin')}}" class="link-term mercado-item-title">admindashborad</a>
+								</li>							
 							</ul>
 						</div>
 					</div>
@@ -128,6 +132,7 @@
 			</div>
 		</div>
 	</header>
+	
 
 	<!-- here is the cpntent -->
 @yield('content')

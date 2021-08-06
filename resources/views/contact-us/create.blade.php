@@ -1,21 +1,8 @@
 
 
-
-
-
 @extends('layout.layout')
 @section('content')
 
-@if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-  
 <main id="main" class="main-site left-sidebar">
 
 <div class="container">
@@ -37,13 +24,21 @@
 
             @csrf
               <label for="name">Name<span>*</span></label>
-              <input type="text" value="" id="name" name="name" >
-
+              <input type="text" value="" id="name" name="name"  class="@error('name') invalid name @enderror">
+              @error('name')
+         <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
               <label for="email">Email<span>*</span></label>
-              <input type="text" value="" id="email" name="email" >
+              <input type="text" value="" id="email" name="email"  class="@error('email') invalid name @enderror">
+              @error('email')
+          <div class="alert alert-danger">{{ $message }}</div>
+          @enderror>
 
-              <label for="phone">Number Phone</label>
-              <input type="text" value="" id="phone" name="phone" >
+              <label for="phone" >Number Phone</label>
+              <input type="text" value="" id="phone" name="phone"  class="@error('phone') invalid name @enderror">
+              @error('phone')
+           <div class="alert alert-danger">{{ $message }}</div>
+             @enderror>
 
               <label for="comment">Comment</label>
               <textarea name="comment" id="comment"></textarea>

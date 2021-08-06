@@ -25,6 +25,7 @@
                 <th scope="col">Email</th>
                 <th scope="col">Phone</th>
                 <th scope="col">Comment</th>
+                <th scope="col">options</th>
               </tr>
             </thead>
             <tbody>
@@ -35,7 +36,7 @@
                   <td>{{$comment->email}}</td>
                   <td>{{$comment->phone}}</td>
                   <td>{{$comment->comment}}</td>
-
+                  <td><a href="{{route('deletecomment',['commentid'=>$comment['id']])}}">delete</a></td>
                  
                 </tr>
         @endforeach
