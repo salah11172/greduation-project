@@ -1,8 +1,18 @@
 <?php
 
+
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\admin\AdminCategortycontroller;
 use App\Http\Controllers\admin\AdminProductnController;
+
+
+use App\Http\Controllers\admin\AdminCategortycontroller;
+use App\Http\Controllers\admin\AdminProductnController;
+ 
+use App\Http\Controllers\CommentController;
+
+use App\Http\Controllers\cart\CartController;
+use App\Http\Controllers\shop\ShopCnotrller;
 use App\Models\Product;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
@@ -19,6 +29,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return view('layout.layout');
+});
+
+Route::get('contact-us/contact', [CommentController::class, 'index'])->name('comment.index');
+Route::get('contact-us/contact/create', [CommentController::class, 'create'])->name('comment.create');
+Route::post('contact/store', [CommentController::class, 'store'])->name('comment.store');
+Route::get("/delete/{commentid}",[CommentController::class,"destroy"])->name("deletecomment");
 //Route::get('/', function () {
   //  return view('layout.layout');
 //});

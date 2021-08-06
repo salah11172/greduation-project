@@ -11,6 +11,7 @@
             <ul class="list-style vertical-list list-limited" data-show="6">
                 <li class="list-item"><a class="filter-link " href="{{route('adminproductlist')}}">products</a></li>
                 <li class="list-item"><a class="filter-link " href="{{route('go_category_for_admin')}}">categories</a></li>
+                <li class="list-item"><a class="filter-link " href="{{route('comment.index')}}">comments</a></li>
                 <li class="list-item"><a class="filter-link " href="#">user</a></li>
                 
             </ul>
