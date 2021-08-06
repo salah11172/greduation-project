@@ -3,7 +3,11 @@
 
 use App\Http\Controllers\admin\AdminCategortycontroller;
 use App\Http\Controllers\admin\AdminProductnController;
+ 
 use App\Http\Controllers\CommentController;
+
+use App\Http\Controllers\cart\CartController;
+use App\Http\Controllers\shop\ShopCnotrller;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
@@ -55,9 +59,16 @@ Route::post("categotory /update/{categoryid}",[AdminCategortycontroller::class,"
 /////shop routes 
 
 
+Route::get("shopcategorylist",[ShopCnotrller::class,"categorylist"])->name("shopproduct");
+Route::get("categoryproducts/{categoryid}",[ShopCnotrller::class,"getcategoryproduct"])->name("categoryprodcuts");
+ROUTE::post("serachcategory",[ShopCnotrller::class,"serach"])->name("searchproducts");
+ROUTE::get("productdetails/{productid}",[ShopCnotrller::class,"showproduct"])->name("productdetails");
 
 
 
+////cart
+
+Route::get("cartshow",[CartController::class,"index"])->name("cartpageshow");
 
 
 

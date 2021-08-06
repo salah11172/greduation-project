@@ -56,15 +56,20 @@
 					<div class="mid-section main-info-area">
 
 						<div class="wrap-logo-top left-section">
+
 							<a href="index.html" class="link-to-home"><img src="{{ asset('images/logo.PNG') }}" alt="mercado"></a>
+
+							<a href="{{route('shopproduct')}}" class="link-to-home"><img src="{{ asset('images/logo.PNG') }}" alt="mercado"></a>
+
 						</div>
 
 						<div class="wrap-search center-section">
 							<div class="wrap-search-form">
-								<form action="#" id="form-search-top" name="form-search-top">
+								<form action="{{route('searchproducts')}}" method="POST" id="form-search-top" name="form-search-top">
+									@csrf
 									<input type="text" name="search" value="" placeholder="Search here...">
-									<button form="form-search-top" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
-								
+									<button name="sad" form="form-search-top" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+									
 								</form>
 							</div>
 						</div>
@@ -107,21 +112,25 @@
 						<div class="container">
 							<ul class="nav primary clone-main-menu" id="mercado_main" data-menuname="Main menu" >
 								<li class="menu-item home-icon">
-									<a href="index.html" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
+									<a href="{{route('shopproduct')}}" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
 								</li>
 								<li class="menu-item">
 									<a href="about-us.html" class="link-term mercado-item-title">About Us</a>
 								</li>
 								<li class="menu-item">
-									<a href="#" class="link-term mercado-item-title">Shop</a>
+									<a href="{{route('shopproduct')}}" class="link-term mercado-item-title">Shop</a>
 								</li>
 								<li class="menu-item">
-									<a href="cart.html" class="link-term mercado-item-title">Cart</a>
+									<a href="{{route('cartpageshow')}}" class="link-term mercado-item-title">Cart</a>
 								</li>
 								<li class="menu-item">
 									<a href="{{route('comment.create')}}" class="link-term mercado-item-title">Contact Us</a>
 								</li>								
 										
+									<a href="contact-us.html" class="link-term mercado-item-title">Contact Us</a>
+								</li>	
+								
+
 								<li class="menu-item">
 									<a href="{{route('gotoadmin')}}" class="link-term mercado-item-title">admindashborad</a>
 								</li>							
