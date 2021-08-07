@@ -18,7 +18,7 @@
 				<div class="col-lg-9 col-md-8 col-sm-8 col-xs-12 main-content-area">
 
 					<div class="banner-shop">
-						<a href="#" class="banner-link">
+						<a href="/" class="banner-link">
 							<figure><img src="/images/1.PNG" alt=""></figure>
 						</a>
 					</div>
