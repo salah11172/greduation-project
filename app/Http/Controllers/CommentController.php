@@ -60,7 +60,7 @@ class CommentController extends Controller
         ]);
        // dd($requestData);
 
-return redirect()->route('comment.index');
+return redirect()->route("shopproduct");
    
        
     }

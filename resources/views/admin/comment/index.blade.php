@@ -13,7 +13,6 @@
 
 <div class="text-center">
        
-         <a href="{{route('comment.create')}}" class="mt-4 btn btn-success">Create Comment</a>
         </div>
         <table class="table mt-4">
             <thead>
