@@ -32,15 +32,15 @@
               <input type="text" value="" id="email" name="email"  class="@error('email') invalid name @enderror">
               @error('email')
           <div class="alert alert-danger">{{ $message }}</div>
-          @enderror>
+          @enderror
 
-              <label for="phone" >Number Phone</label>
+              <label for="phone" >Number Phone<span>*</span></label>
               <input type="text" value="" id="phone" name="phone"  class="@error('phone') invalid name @enderror">
               @error('phone')
            <div class="alert alert-danger">{{ $message }}</div>
-             @enderror>
+             @enderror
 
-              <label for="comment">Comment</label>
+              <label for="comment">Comment<span>*</span></label>
               <textarea name="comment" id="comment"></textarea>
 
               <input type="submit" name="ok" value="Submit" >

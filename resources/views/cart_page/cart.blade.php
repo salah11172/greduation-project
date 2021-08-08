@@ -48,7 +48,7 @@
 										<input type="hidden" name="id" value="{{ $item->id}}" >
 										<input type="number" name="quantity" value="{{ $item->quantity }}" 
 										class="text-center" style="width: 10rem;"/>
-										<button type="submit" class="btn btn-primary">update</button>
+										<button type="submit" class="btn btn-primary">Change</button>
 									</form>
 								</div>
 							</div>

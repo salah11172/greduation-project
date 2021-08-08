@@ -6,15 +6,16 @@ use App\Http\Controllers\admin\AdminCategortycontroller;
 use App\Http\Controllers\admin\AdminProductnController;
 
 
-use App\Http\Controllers\admin\AdminCategortycontroller;
-use App\Http\Controllers\admin\AdminProductnController;
+
+
  
 use App\Http\Controllers\CommentController;
 
-use App\Http\Controllers\cart\CartController;
+
 use App\Http\Controllers\shop\ShopCnotrller;
 use App\Models\Product;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\DetailsController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,9 +38,7 @@ Route::get('contact-us/contact', [CommentController::class, 'index'])->name('com
 Route::get('contact-us/contact/create', [CommentController::class, 'create'])->name('comment.create');
 Route::post('contact/store', [CommentController::class, 'store'])->name('comment.store');
 Route::get("/delete/{commentid}",[CommentController::class,"destroy"])->name("deletecomment");
-//Route::get('/', function () {
-  //  return view('layout.layout');
-//});
+
 
 Route::get("/create",[AdminProductnController::class,"create"])->name("productcreate");
 Route::get("/delete/{productid}",[AdminProductnController::class,"destroy"])->name("admindeleteproduct");
@@ -78,7 +77,9 @@ Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear'
 
 Route::get('/aboutus', [AboutController::class, 'aboutus'])->name('about_us.about');
 
+// Details Page
 
+Route::get('/details/{detail}', [DetailsController::class, 'Details'])->name('details_page.details');
 
 
 

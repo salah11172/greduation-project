@@ -57,13 +57,7 @@
 
 						<div class="wrap-logo-top left-section">
 
-						//	<a href="index.html" class="link-to-home"><img src="{{asset('/images/logo.PNG')}}" alt="mobishop"></a>
-
-
-						//	<a href="index.html" class="link-to-home"><img src="{{ asset('images/logo.PNG') }}" alt="mercado"></a>
-
 							<a href="{{route('shopproduct')}}" class="link-to-home"><img src="{{ asset('images/logo.PNG') }}" alt="mercado"></a>
-
 
 						</div>
 
@@ -109,8 +103,6 @@
 				</div>
 
 				<div class="nav-section header-sticky">
-					
-
 					<div class="primary-nav-section">
 						<div class="container">
 							<ul class="nav primary clone-main-menu" id="mercado_main" data-menuname="Main menu" >
@@ -128,11 +120,7 @@
 								</li>
 								<li class="menu-item">
 									<a href="{{route('comment.create')}}" class="link-term mercado-item-title">Contact Us</a>
-								</li>								
-										
-									<a href="contact-us.html" class="link-term mercado-item-title">Contact Us</a>
-								</li>	
-
+								</li>
 								<li class="menu-item">
 									<a href="{{route('gotoadmin')}}" class="link-term mercado-item-title">admindashborad</a>
 								</li>							

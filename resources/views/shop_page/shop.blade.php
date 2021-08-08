@@ -18,7 +18,7 @@
 				<div class="col-lg-9 col-md-8 col-sm-8 col-xs-12 main-content-area">
 
 					<div class="banner-shop">
-						<a href="/" class="banner-link">
+						<a href="#" class="banner-link">
 							<figure><img src="/images/1.PNG" alt=""></figure>
 						</a>
 					</div>
@@ -37,14 +37,15 @@
 							<li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
 								<div class="product product-style-3 equal-elem">
 									<div class="product-thumnail" style="height: 25rem;">
-										<a href="detail.html" title="">
+										<a href="{{route('details_page.details', ['detail' => $product->id])}}" title="">
 											<figure><img src="{{ url($product->image) }}" alt=""></figure>
 										</a>
 									</div>
 									<div class="product-info">
-										<a href="#" class="product-name"><span>{{ $product->name }}</span></a>
+										<a href="{{route('details_page.details', ['detail' => $product->id])}}" class="product-name"><span>{{ $product->name }}</span></a>
 										<div class="wrap-price" style="height:6rem;">{{ $product->description }}</div>
 										<div class="wrap-price"><span class="product-price">${{ $product->price }}</span></div>
+										@if ($product->quantity != 0)
 										<form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
 											@csrf
 											<input type="hidden" value="{{ $product->id }}" name="id">
@@ -52,8 +53,11 @@
 											<input type="hidden" value="{{ $product->price }}" name="price">
 											<input type="hidden" value="{{ $product->image }}"  name="image">
 											<input type="hidden" value="1" name="quantity">
-											<button class="btn add-to-cart"><span id="carts" style="color: #888888">Add To Cart</span></button>
+											<button class="btn add-to-cart"><span class="carts" style="color: #888888">Add To Cart</span></button>
 										</form>
+										@else 
+										<button class="btn add-to-cart"><span class="carts" style="color: #888888">Sorry I'm out of stock &hearts;</span></button>
+                        				@endif
 										
 									</div>
 								</div>
