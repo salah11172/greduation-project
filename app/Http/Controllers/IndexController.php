@@ -19,11 +19,12 @@ class IndexController extends Controller
         $productt=Product::where("quantity",'>',1000)->get();
         $data = Category::all();
 
-       // dd($product);
-       // $data=Category::all();
-       // $product=Product::where("categort_id",$catid)->get();
-     //dd($product);
-            return view("index", ['productss'=>$productt],['categories'=>$data]);
+       
+
+
+
+
+        return view("index", ['productss'=>$productt],['categories'=>$data]);
     }
 
     public function showproducts ($catid)
@@ -40,11 +41,11 @@ class IndexController extends Controller
    
    public function latestproduct()
     {
-         $latestproducts = Product::orderBy('id','desc')->take(5)->get();
+        $latestproducts = Product::orderBy('id','desc')->take(5)->get();
         //  dd($latestproducts);
         $imgSlider = Slider::all();
         // dd($imgSlider);
-         return view('index', ['latests'=>$latestproducts], ['imageSlider'=>$imgSlider]);
+        return view('index', ['latests'=>$latestproducts], ['imageSlider'=>$imgSlider]);
     }
 
 

@@ -18,7 +18,7 @@
 				<div class="col-lg-9 col-md-8 col-sm-8 col-xs-12 main-content-area">
 
 					<div class="banner-shop">
-						<a href="#" class="banner-link">
+						<a href="/" class="banner-link">
 							<figure><img src="/images/1.PNG" alt=""></figure>
 						</a>
 					</div>
@@ -68,13 +68,13 @@
 
 					<div class="wrap-pagination-info">
 						<ul class="page-numbers">
-							<li><span class="page-number-item {{--current--}}" >1</span></li>
-							<li><a class="page-number-item" href="{{route('products.list')}}" >2</a></li>
-							<li><a class="page-number-item" href="{{route('products.list')}}" >3</a></li>
-							<li><a class="page-number-item next-link" href="{{route('products.list')}}" >Next</a></li>
-						</ul>
-						
+							<li><a class="page-number-item" href="?page=1" >1</a></li>
+							<li><a class="page-number-item" href="?page=2" >2</a></li>
+							<li><a class="page-number-item" href="?page=3" >3</a></li>
+							<li><span class="page-number-item" style="width: 15rem;">{{$products->links()}}</span></li>
+						</ul>						
 					</div>
+
 				</div><!--end main products area-->
 
 				<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 sitebar">

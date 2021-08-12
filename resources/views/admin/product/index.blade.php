@@ -29,7 +29,7 @@
     
 
 
-$
+
     <div class="widget mercado-widget widget-product">
         <h2 class="widget-title">Popular Products</h2>
         <div class="widget-content">

@@ -89,13 +89,13 @@ Route::get('/details/{detail}', [DetailsController::class, 'Details'])->name('de
 
 // Index Page
 
-Route::get('index', [IndexController::class, 'show'])->name('show');
+// Route::get('index', [IndexController::class, 'show'])->name('show');
 
-Route::get('index', [IndexController::class, 'latestproduct'])->name('latestproduct');
+Route::get('/', [IndexController::class, 'latestproduct'])->name('latestproduct');
 
 Route::get('/detail/{id}', [IndexDetailsController::class, 'detail'])->name('indexdetails');
 
-Route::get('/index/{catid}', [IndexController::class, 'showproducts'])->name('showproduct');
+// Route::get('/index/{catid}', [IndexController::class, 'showproducts'])->name('showproduct');
 
 
 // Slider Page

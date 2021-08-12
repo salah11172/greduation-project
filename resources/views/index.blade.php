@@ -11,6 +11,9 @@
                 @foreach ($imageSlider as $slider)                    
                 <div class="item-slide">
                     <img src="{{asset('images/slider/'.$slider->image)}}" alt="" class="img-slide" style="height: 50rem;">
+                    <div class="slide-info slide-2">
+                        <p class="discount-code">Coming Soon</p>
+                    </div>
                 </div>
                 @endforeach
             </div>
