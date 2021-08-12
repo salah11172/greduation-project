@@ -66,39 +66,6 @@
 						</ul>
 					</div>
 
-					{{--////////////////////  --}}
-					{{-- <div class="row">
-
-						<div class="container px-6 mx-auto">
-							<h3 class="">Product List</h3>
-							<div class="" style="display: flex; flex-wrap:wrap; justify-content:space-around">
-								@foreach ($products as $product)
-								<div class="">
-									<img src="{{ url($product->image) }}" alt="" class="" style="width: 20rem; height:30rem">
-									<div class="flex items-end justify-end w-full bg-cover">
-										
-									</div>
-									<div class="px-5 py-3" style="width:30rem;">
-										<h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
-										<h5 class="text-gray-700 uppercase" style="width:17rem">{{ $product->description }}</h5>
-										<span class="mt-2 text-gray-500"><b>${{ $product->price }}</b></span><br><br>
-										<form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
-											@csrf
-											<input type="hidden" value="{{ $product->id }}" name="id">
-											<input type="hidden" value="{{ $product->name }}" name="name">
-											<input type="hidden" value="{{ $product->price }}" name="price">
-											<input type="hidden" value="{{ $product->image }}"  name="image">
-											<input type="hidden" value="1" name="quantity">
-											<button class="btn add-to-cart">Add To Cart</button>
-										</form>
-									</div>
-								</div>
-								@endforeach
-							</div>
-						</div>
-					</div> --}}
-					{{-- /////////////// --}}
-
 					<div class="wrap-pagination-info">
 						<ul class="page-numbers">
 							<li><span class="page-number-item {{--current--}}" >1</span></li>

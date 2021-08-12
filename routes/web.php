@@ -16,7 +16,11 @@ use App\Http\Controllers\shop\ShopCnotrller;
 use App\Models\Product;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\DetailsController;
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\IndexDetailsController;
+use App\Http\Controllers\MarqueeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SliderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,9 +34,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('layout.layout');
-});
+// Route::get('/', function () {
+//     return view('layout.layout');
+// });
 
 Route::get('contact-us/contact', [CommentController::class, 'index'])->name('comment.index');
 Route::get('contact-us/contact/create', [CommentController::class, 'create'])->name('comment.create');
@@ -83,10 +87,34 @@ Route::get('/details/{detail}', [DetailsController::class, 'Details'])->name('de
 
 
 
+// Index Page
+
+Route::get('index', [IndexController::class, 'show'])->name('show');
+
+Route::get('index', [IndexController::class, 'latestproduct'])->name('latestproduct');
+
+Route::get('/detail/{id}', [IndexDetailsController::class, 'detail'])->name('indexdetails');
+
+Route::get('/index/{catid}', [IndexController::class, 'showproducts'])->name('showproduct');
 
 
+// Slider Page
+
+Route::get('/slider', [SliderController::class, 'show'])->name('add_slider');
+
+Route::post('/store', [SliderController::class,'store'])->name('sliderstore');
+
+Route::get('/slidertable/details', [SliderController::class, 'sliderindexx'])->name('sliderindex');
+
+Route::get('/deleteimg/{imgid}', [SliderController::class, 'destrooy'])->name('deleteimg');
 
 
+// Marquee
 
+Route::get('/marquee', [MarqueeController::class, 'show'])->name('add_marquee');
 
+Route::post('/stoore', [MarqueeController::class, 'store'])->name('marqueestore');
 
+Route::get('/marqueetable/details', [MarqueeController::class, 'marqueeindex'])->name('marqueeindex');
+
+Route::get('/deletecomment/{commentid}', [MarqueeController::class, 'destroy'])->name('deletecomment');

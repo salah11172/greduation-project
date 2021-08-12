@@ -13,7 +13,7 @@ class CommentController extends Controller
         
         $comment = Contact::paginate(2);
 
-        //dd('hhhh');
+        // dd($comment);
         return view('admin/comment/index',["commentCollection"=>$comment]);
     }
 
@@ -60,7 +60,7 @@ class CommentController extends Controller
         ]);
        // dd($requestData);
 
-return redirect()->route('comment.index');
+        return redirect()->route('comment.index');
    
        
     }
@@ -69,6 +69,6 @@ return redirect()->route('comment.index');
     {
       Contact::find($commentid)->delete();
        
-         return redirect()->route('comment.index')->with(["message"=>"comment has been deleted sucessfuuly"]);
+         return redirect()->route('comment.index')->with(["message"=>"comment has been deleted sucessfuly"]);
     }
 }

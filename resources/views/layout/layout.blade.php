@@ -102,6 +102,19 @@
 					</div>
 				</div>
 
+				<?php
+					use App\Models\Marquee;
+					$marquee = Marquee::all();
+					// dd($send);
+				?>
+				<div class="container">
+					<marquee scrollamount="4" direction="left">
+						@foreach ($marquee as $marq)
+						<span style="color:#FF2832; font-size:15px;"><i>&bull; &lang; {{$marq->comment}} &rang; &bull;</i></span>
+						@endforeach					
+					</marquee>
+				</div>
+
 				<div class="nav-section header-sticky">
 					<div class="primary-nav-section">
 						<div class="container">

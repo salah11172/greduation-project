@@ -49,5 +49,5 @@
         </div>
     </div><!--end main products area-->		
 </div>
-</div><!--end row-->
+
 @endsection

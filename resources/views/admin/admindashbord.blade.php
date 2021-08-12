@@ -13,7 +13,8 @@
                 <li class="list-item"><a class="filter-link " href="{{route('go_category_for_admin')}}">categories</a></li>
                 <li class="list-item"><a class="filter-link " href="{{route('comment.index')}}">comments</a></li>
                 <li class="list-item"><a class="filter-link " href="#">user</a></li>
-                
+                <li class="list-item"><a class="filter-link " href="{{route('add_slider')}}">Slider</a></li>
+                <li class="list-item"><a class="filter-link " href="{{route('add_marquee')}}">Marquee</a></li>
             </ul>
         </div>
     </div><!-- brand widget-->    

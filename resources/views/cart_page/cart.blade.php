@@ -48,7 +48,7 @@
 										<input type="hidden" name="id" value="{{ $item->id}}" >
 										<input type="number" name="quantity" value="{{ $item->quantity }}" 
 										class="text-center" style="width: 10rem;"/>
-										<button type="submit" class="btn btn-primary">Change</button>
+										<button type="submit" class="btn btn-danger">Change</button>
 									</form>
 								</div>
 							</div>
@@ -91,7 +91,7 @@
 			<div class="checkout-info">
 				
 				<a class="btn btn-checkout" href="checkout.html">Check out</a>
-				<a class="link-to-shop" href="shop.html">Continue Shopping<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+				<a class="link-to-shop" href="{{route('products.list')}}">Continue Shopping<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
 			</div>
 		</div>
 	</div>
