@@ -1,4 +1,4 @@
-@extends("layout.layout")
+{{-- @extends('admin.adminlayout.layout')
 @section("content")
 <br>
 
@@ -12,10 +12,23 @@
                 <li class="list-item"><a class="filter-link " href="{{route('adminproductlist')}}">products</a></li>
                 <li class="list-item"><a class="filter-link " href="{{route('go_category_for_admin')}}">categories</a></li>
                 <li class="list-item"><a class="filter-link " href="{{route('comment.index')}}">comments</a></li>
-                <li class="list-item"><a class="filter-link " href="#">user</a></li>
-                
+                <li class="list-item"><a class="filter-link " href="{{route('showalluserforadmin')}}">user</a></li>
+                <li class="list-item"><a class="filter-link " href="{{route('add_slider')}}">Slider</a></li>
+                <li class="list-item"><a class="filter-link " href="{{route('add_marquee')}}">Marquee</a></li>
+                <li class="list-item"><a class="filter-link " href="{{route('showordersforadmin')}}">orders</a></li>
+
             </ul>
         </div>
     </div><!-- brand widget-->    
 </div><!--end main products area-->
+@endsection --}}
+@extends("admin.adminlayout.layout")
+@section("content")
+<h1 class="text-center m-5 "> welcome    <span class="text-primary"> {{ session()->get('Username') }}</span> in  dashboard<h1>
+    
+
+
+    
+
+  
 @endsection

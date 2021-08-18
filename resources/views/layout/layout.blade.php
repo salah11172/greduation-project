@@ -15,6 +15,19 @@
         <link rel="stylesheet" type="text/css" href="  {{ asset('/css/chosen.min.css') }}">
         <link rel="stylesheet" type="text/css" href="  {{ asset('/css/style.css') }}">
         <link rel="stylesheet" type="text/css" href=" {{ asset('/css/color-01.css') }}">
+		<script src="{{ asset('/js/jquery-1.12.4.minb8ff.js?ver=1.12.4') }}"></script>
+		<script src="{{ asset('/js/jquery-ui-1.12.4.minb8ff.js?ver=1.12.4') }}"></script>
+		<script src="{{ asset('/js/bootstrap.min.js') }}"></script>
+		<script src="{{ asset('/js/chosen.jquery.min.js') }}"></script>
+		<script src="{{ asset('/js/owl.carousel.min.js') }}"></script>
+		<script src="{{ asset('/js/jquery.countdown.min.js') }}"></script>
+		<script src="{{ asset('/js/jquery.sticky.js') }}"></script>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+		<script src="{{ asset('/js/functions.js') }}"></script>
+
     </head>
 <body class="inner-page about-us ">
 
@@ -42,9 +55,12 @@
 						</div>
 						<div class="topbar-menu right-menu">
 							<ul>
-								<li class="menu-item" ><a title="Register or Login" href="login.html">Login</a></li>
-								<li class="menu-item" ><a title="Register or Login" href="register.html">Register</a></li>
-								
+								@if( session()->get('LoggedUser') >= 1 )
+                                  <li class="menu-item" ><a title="Register or Login" href="{{route('auth.logout')}}">Log out</a></li>
+								@else
+								  <li class="menu-item" ><a title="Register or Login" href="{{route('auth.login')}}">Log in</a></li>
+							  	<li class="menu-item" ><a title="Register or Login" href="{{route('auth.register')}}">Register</a></li>
+								@endif
 								</li>
 							
 							</ul>
@@ -57,22 +73,20 @@
 
 						<div class="wrap-logo-top left-section">
 
-						//	<a href="index.html" class="link-to-home"><img src="{{asset('/images/logo.PNG')}}" alt="mobishop"></a>
-
-
-						//	<a href="index.html" class="link-to-home"><img src="{{ asset('images/logo.PNG') }}" alt="mercado"></a>
-
 							<a href="{{route('shopproduct')}}" class="link-to-home"><img src="{{ asset('images/logo.PNG') }}" alt="mercado"></a>
 
-
 						</div>
+						
+                                
+								
 
 						<div class="wrap-search center-section">
 							<div class="wrap-search-form">
-								<form action="#" id="form-search-top" name="form-search-top">
+								<form action="{{route('searchproducts')}}" method="POST" id="form-search-top" name="form-search-top">
+									@csrf
 									<input type="text" name="search" value="" placeholder="Search here...">
-									<button form="form-search-top" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
-								
+									<button name="sad" form="form-search-top" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+									
 								</form>
 							</div>
 						</div>
@@ -80,7 +94,7 @@
 						<div class="wrap-icon right-section">
 							<div class="wrap-icon-section wishlist">
 								<a href="#" class="link-direction">
-									<i class="fa fa-heart" aria-hidden="true"></i>
+									<i class="fa fa-heart" aria-hidden="true" id="heartbeat"></i>
 									<div class="left-info">
 										<span class="index"># item</span>
 										<span class="title">Wishlist</span>
@@ -89,7 +103,7 @@
 							</div>
 							<div class="wrap-icon-section minicart">
 								<a href="{{route('cart.list')}}" class="link-direction">
-									<i class="fa fa-shopping-basket" aria-hidden="true"></i>
+									<i class="fa fa-shopping-basket" aria-hidden="true" id="shake-top"></i>
 									<div class="left-info">
 										<span class="index">{{ Cart::getTotalQuantity()}} items</span>
 										<span class="title">CART</span>
@@ -104,14 +118,27 @@
 								</a>
 							</div>
 						</div>
+						
+							
+						
 
 					</div>
 				</div>
 
+				<?php
+					use App\Models\Marquee;
+					$marquee = Marquee::all();
+				?>
 				<div class="nav-section header-sticky">
-					
+					<div class="container">
+						<marquee scrollamount="4" direction="left">
+							@foreach ($marquee as $marq)
+							<span style="color:#FF2832; font-size:15px;"><i>&lang; {{$marq->comment}} &rang;</i> <span style="color:#444444;font-weight:bolder;">MőB SHőP</span></span>
+							@endforeach					
+						</marquee>
+					</div>
 
-					<div class="primary-nav-section">
+					{{-- <div class="primary-nav-section">
 						<div class="container">
 							<ul class="nav primary clone-main-menu" id="mercado_main" data-menuname="Main menu" >
 								<li class="menu-item home-icon">
@@ -121,21 +148,84 @@
 									<a href="{{route('about_us.about')}}" class="link-term mercado-item-title">About Us</a>
 								</li>
 								<li class="menu-item">
-									<a href="{{route('products.list')}}" class="link-term mercado-item-title">Shop</a>
+									<a href="{{route('shopproduct')}}" class="link-term mercado-item-title">Shop</a>
+								</li>
+								<li class="menu-item">
+									<a href="{{route('cart.list')}}" class="link-term mercado-item-title">Cart</a>
+								</li>
+								<li class="menu-item">
+									<a href="{{route('trackordersforuser')}}" class="link-term mercado-item-title">my orders</a>
+								</li>	
+								<li class="menu-item">
+									<a href="{{route('comment.create')}}" class="link-term mercado-item-title">Contact Us</a>
+								</li>
+								<li class="menu-item">
+									<a href="{{route('gotoadmin')}}" class="link-term mercado-item-title">admindashborad</a>
+								</li>							
+							</ul>
+						</div>
+					</div> --}}
+					<div class="primary-nav-section">
+						<div class="container">
+							<ul class="nav primary clone-main-menu" id="mercado_main" data-menuname="Main menu" >
+								{@if( session()->get('UserType') == 0 ) 
+							
+								
+								<li class="menu-item home-icon">
+									<a href="/" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
+								</li>
+								<li class="menu-item">
+									<a href="{{route('about_us.about')}}" class="link-term mercado-item-title">About Us</a>
+								</li>
+								<li class="menu-item">
+									<a href="{{route('shopproduct')}}" class="link-term mercado-item-title">Shop</a>
 								</li>
 								<li class="menu-item">
 									<a href="{{route('cart.list')}}" class="link-term mercado-item-title">Cart</a>
 								</li>
 								<li class="menu-item">
 									<a href="{{route('comment.create')}}" class="link-term mercado-item-title">Contact Us</a>
-								</li>								
-										
-									<a href="contact-us.html" class="link-term mercado-item-title">Contact Us</a>
 								</li>	
-
+								@if( session()->get('LoggedUser') >= 1 )
 								<li class="menu-item">
-									<a href="{{route('gotoadmin')}}" class="link-term mercado-item-title">admindashborad</a>
-								</li>							
+									<a href="{{route('trackordersforuser')}}" class="link-term mercado-item-title">my orders</a>
+								</li>
+								@else 
+								<span>  </span>
+
+								@endif
+								<span style="color:white"> {{session()->get('LoggedUser')}}</span>
+								
+								
+									
+								@else 
+								  @if( session()->get('LoggedUser') >= 1 )
+								
+								  <li class="menu-item">
+									<a href="{{route('showordersforadmin')}}" class="link-term mercado-item-title">admindashborad</a>
+								</li>	
+							     @else
+								 <li class="menu-item home-icon">
+									<a href="{{route('shopproduct')}}" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
+								</li>
+								<li class="menu-item">
+									<a href="{{route('about_us.about')}}" class="link-term mercado-item-title">About Us</a>
+								</li>
+								<li class="menu-item">
+									<a href="{{route('shopproduct')}}" class="link-term mercado-item-title">Shop</a>
+								</li>
+								<li class="menu-item">
+									<a href="{{route('cart.list')}}" class="link-term mercado-item-title">Cart</a>
+								</li>
+								<li class="menu-item">
+									<a href="{{route('comment.create')}}" class="link-term mercado-item-title">Contact Us</a>
+								</li>	
+								
+									@endif
+							
+
+								  
+								 @endif						 
 							</ul>
 						</div>
 					</div>

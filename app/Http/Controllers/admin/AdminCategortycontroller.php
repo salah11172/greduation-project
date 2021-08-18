@@ -24,7 +24,11 @@ class AdminCategortycontroller extends Controller
             'name' => 'required|max:255',
             'description' => 'required|max:255',
             
-        ]);
+        ],[
+          'name.required' => 'please enter your name',
+          'description.required' => 'please enter your description',
+
+      ]);
            Category::create([
               'name'=>$req->name,
               'description'=>$req->description,

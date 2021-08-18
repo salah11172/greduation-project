@@ -1,4 +1,4 @@
-@extends('layout.layout')
+@extends('admin.adminlayout.layout')
 @section("content")
 <br>
 <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12 col-md-offset-3">
@@ -35,11 +35,14 @@
                         <label for="frm-login-pass">productimage:</label>
                         <input type="file" id="frm-login-pass" name="image" placeholder="product details">
                     </fieldset>
-        
-                    <fieldset class="wrap-input">
-                        <label for="frm-login-pass">category_id</label>
-                        <input type="text" id="frm-login-pass" name="categort_id" placeholder="category id ">
-                    </fieldset>
+                    <div class="form-group">
+                        <label for="sel1">select category name:</label>
+                        <select name="categort_id" class="form-control" id="sel1">
+                            @foreach ($dervied as $item  )
+                            <option value="{{$item['id']}}">{{$item['name']}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     
                     
                    

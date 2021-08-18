@@ -1,4 +1,4 @@
-@extends('layout.layout')
+@extends('admin.adminlayout.layout')
 @section('content')
 
 @if ($errors->any())
@@ -13,7 +13,7 @@
 
 <div class="text-center">
        
-         <a href="{{route('comment.create')}}" class="mt-4 btn btn-success">Create Comment</a>
+         {{-- <a href="{{route('comment.create')}}" class="mt-4 btn btn-success">Create Comment</a> --}}
         </div>
         <table class="table mt-4">
             <thead>
@@ -36,7 +36,7 @@
                   <td>{{$comment->email}}</td>
                   <td>{{$comment->phone}}</td>
                   <td>{{$comment->comment}}</td>
-                  <td><a href="{{route('deletecomment',['commentid'=>$comment['id']])}}">delete</a></td>
+                  <td><a href="{{route('deletecoment',['comentid'=>$comment['id']])}}">delete</a></td>
                  
                 </tr>
         @endforeach

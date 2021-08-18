@@ -1,4 +1,4 @@
-@extends('layout.layout')
+@extends('admin.adminlayout.layout')
 
 @section('content')
 <br>
@@ -29,7 +29,7 @@
     
 
 
-$
+
     <div class="widget mercado-widget widget-product">
         <h2 class="widget-title">Popular Products</h2>
         <div class="widget-content">
@@ -135,7 +135,7 @@ $
             <div class="product product-style-3 equal-elem ">
                 <div class="product-thumnail">
                     <a href="detail.html" title="T-Shirt Raw Hem Organic Boro Constrast Denim">
-                        <figure><img src="/images/products/digital_11.jpg" alt="mobilephone"></figure>
+                        <figure><img src="/images/products/digital_11.jpg')" alt="mobilephone"></figure>
                     </a>
                 </div>
                 <div class="product-info">

@@ -9,7 +9,9 @@ class CartController extends Controller
     public function cartList()
     {
         $cartItems = \Cart::getContent();
+        $Total = \Cart::getTotal();
         // dd($cartItems);
+        // dd($Total);
         return view('cart_page.cart', compact('cartItems'));
     }
 
@@ -63,4 +65,6 @@ class CartController extends Controller
 
         return redirect()->route('cart.list');
     }
+
+
 }

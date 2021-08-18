@@ -115,21 +115,7 @@
             }
 		},
 
-		mercado_price_range: function(){
-    	    if($("#slider-range").length > 0){
-                $( "#slider-range" ).slider({
-                    range: true,
-                    min: 100,
-                    max: 50000,
-                    values: [ 75, 300 ],
-                    slide: function( event, ui ) {
-                        $( "#amount" ).val( " " + ui.values[ 0 ] + " - " + ui.values[ 1 ] );
-                    }
-                });
-                $( "#amount" ).val( "" + $( "#slider-range" ).slider( "values", 0 ) +
-                    " EGP" + $( "#slider-range" ).slider( "values", 1 ) );
-            }
-		},
+		
         /* ---------------------------------------------
 		// Clone all Zan Menus for mobile
 		---------------------------------------------*/
@@ -320,46 +306,46 @@
                         });
                     }, 1200);
 				}
-                $(document).on('click','.tab-control .tab-control-item', function(ev){
-                    ev.preventDefault();
-                    if(!$(this).hasClass('active')){
-                        var _this = $(this),
-                            _link_content = _this.attr('href'),
-                            _tab_active = _this.closest('.wrap-product-tab').find('.tab-contents').find(_link_content);
-                        _this.siblings(".active").removeClass('active');
-                        _this.addClass('active');
-                        _this.closest('.wrap-product-tab').find('.tab-contents .active').removeClass('active');
-                        _tab_active.addClass('active');
-                        _tab_active.find('.wrap-products .owl-item').each(function (index) {
-                            var owl_item = $(this),
-                                style = $(this).attr("style"),
-                                tab_animated = 'zoomIn',
-                                delay = parseInt(index, 10) * 100;
-                            owl_item.attr("style", style +
-                                ";-webkit-animation-delay:" + String(delay) + "ms;"
-                                + "-moz-animation-delay:" + String(delay) + "ms;"
-                                + "-o-animation-delay:" + String(delay) + "ms;"
-                                + "animation-delay:" + String(delay) + "ms;"
-                            ).addClass(tab_animated + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
-                                owl_item.removeClass(tab_animated + ' animated');
-                                owl_item.attr("style", style);
-                            });
-                        });
-                    }
-                });
+                // $(document).on('click','.tab-control .tab-control-item', function(ev){
+                //     ev.preventDefault();
+                //     if(!$(this).hasClass('active')){
+                //         var _this = $(this),
+                //             _link_content = _this.attr('href'),
+                //             _tab_active = _this.closest('.wrap-product-tab').find('.tab-contents').find(_link_content);
+                //         _this.siblings(".active").removeClass('active');
+                //         _this.addClass('active');
+                //         _this.closest('.wrap-product-tab').find('.tab-contents .active').removeClass('active');
+                //         _tab_active.addClass('active');
+                //         _tab_active.find('.wrap-products .owl-item').each(function (index) {
+                //             var owl_item = $(this),
+                //                 style = $(this).attr("style"),
+                //                 tab_animated = 'zoomIn',
+                //                 delay = parseInt(index, 10) * 100;
+                //             owl_item.attr("style", style +
+                //                 ";-webkit-animation-delay:" + String(delay) + "ms;"
+                //                 + "-moz-animation-delay:" + String(delay) + "ms;"
+                //                 + "-o-animation-delay:" + String(delay) + "ms;"
+                //                 + "animation-delay:" + String(delay) + "ms;"
+                //             ).addClass(tab_animated + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+                //                 owl_item.removeClass(tab_animated + ' animated');
+                //                 owl_item.attr("style", style);
+                //             });
+                //         });
+                //     }
+                // });
             }
-            if($(".tab-control.normal").length > 0){
-            	$(document).on('click','.tab-control.normal .tab-control-item', function(ev){
-                    ev.preventDefault();
-                	var _this = $(this);
-                    if(!_this.hasClass('active')){
-	                    _this.siblings(".active").removeClass('active');
-	                    _this.addClass('active');
-	                    _this.parents().siblings('.tab-contents').find('.active').removeClass('active');
-	                    _this.parents().siblings('.tab-contents').find(_this.attr('href')).addClass('active');
-                    }  
-                });
-            }
+            // if($(".tab-control.normal").length > 0){
+            // 	$(document).on('click','.tab-control.normal .tab-control-item', function(ev){
+            //         ev.preventDefault();
+            //     	var _this = $(this);
+            //         if(!_this.hasClass('active')){
+	        //             _this.siblings(".active").removeClass('active');
+	        //             _this.addClass('active');
+	        //             _this.parents().siblings('.tab-contents').find('.active').removeClass('active');
+	        //             _this.parents().siblings('.tab-contents').find(_this.attr('href')).addClass('active');
+            //         }  
+            //     });
+            // }
 
         },
 

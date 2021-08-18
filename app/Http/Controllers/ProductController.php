@@ -8,10 +8,10 @@ class ProductController extends Controller
 {
     public function productList()
     {
-        $products = Product::all();
-
+        $products = Product::paginate(6);
         // dd($products);
 
         return view('shop_page.shop', compact('products'));
     }
 }
+  
