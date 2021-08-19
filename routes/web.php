@@ -144,6 +144,9 @@ Route::post("makeorder",[Orderscontroller::class,"storeorderitems"])->name("make
 
 Route::get("showusersforadmin",[Usercontroller::class,"showalluserforadmin"])->name("showalluserforadmin");
 Route::get('admindeleteuser/{userid}',[Usercontroller::class,"admindeleteuser"])->name("admindeleteuser");
+Route::get('adminupdateeuser/{userid}',[Usercontroller::class,"adminupdateuser"])->name("adminupdateuser");
+Route::post('/updateuser/{userid}',[UserController::class,"updateuser"])->name("updateuser");
+
 
 
 

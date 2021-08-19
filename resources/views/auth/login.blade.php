@@ -87,6 +87,10 @@
          @endif
 
         @csrf
+        @if($errors->any())
+        <h4 style="color:red">{{$errors->first()}}</h4>
+        <h6>Visit <a href="{{route('comment.create')}}">contact us</a> to know why you blocked</h6>
+        @endif
           <div class="avatar my-5">
            
              <img src="{{ asset('images/Capture.PNG') }}" alt="mercado" width="40%">

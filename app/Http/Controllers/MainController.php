@@ -97,9 +97,20 @@ class MainController extends Controller
                 $request->session()->put('LoggedUser', $userInfo->id);
                 $request->session()->put('Username', $userInfo->name);
                 $request->session()->put('UserType', $userInfo->is_admin);
+                 if($userInfo->status ==1 )
                  if($userInfo->is_admin ==1 )
                  {return redirect('/orderslistforadmin');}
                  else{return redirect('/'); }
+                
+                 else{ 
+                      session()->pull('LoggedUser');
+                    //   return redirect('contact-us/contact/create')->withInput('<input >');
+                      return Redirect::back()->withErrors(['You are Blocked From Login']);
+                
+                }
+
+                
+
                 // return $userInfo->is_admin ;
 
             }else{
