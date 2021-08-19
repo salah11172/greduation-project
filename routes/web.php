@@ -12,6 +12,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\shop\ShopCnotrller;
 use App\Models\Product;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OfferController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\DetailsController;
 use App\Http\Controllers\IndexController;
@@ -36,6 +37,9 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('layout.layout');
 // });
+
+
+
 
 Route::get('contact-us/contact', [CommentController::class, 'index'])->name('comment.index');
 Route::get('contact-us/contact/create', [CommentController::class, 'create'])->name('comment.create');

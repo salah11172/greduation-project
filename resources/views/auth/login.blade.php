@@ -1,29 +1,33 @@
-
+{{-- 
 @extends('layout.layout');
-@section('content')
-<!DOCTYPE html>
+@section('content') --}}
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
-    <link rel="stylesheet" href="{{ asset('bootstrap-3.1.1/css/bootstrap.min.css') }}">
+ 
+   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 
 <div class="container">
    <div class="row" style="margin-top:45px">
+      <div class="wrap-logo-top center" style="">
+
+         <a href="{{route('shopproduct')}}" style="margin-left: 40% "  class="link-to-home my-5"><img src="{{ asset('images/logo.PNG') }}" alt="mercado" width="20%"></a>
+
+      </div>
     <div class="wrap-breadcrumb">
         <ul>
-            <li class="item-link"><a href="#" class="link">home</a></li>
-            <li class="item-link"><span>login</span></li>
-        </ul>
+            {{-- <li class="item-link"><a href="" class="link">home</a></li> --}}
+            {{-- <li class="item-link"><span>login</span></li> --}}
+        {{-- </ul>
     </div>
       <div class="col-md-4 col-md-offset-4">
            
 			
-           <form action="{{ route('auth.check') }}" method="post">
+           <form action="{{ route('auth.check') }}" method="post" class="border">
             @if(Session::get('fail'))
                <div class="alert alert-danger">
                   {{ Session::get('fail') }}
@@ -47,69 +51,62 @@
               <a href="{{ route('auth.register') }}">I don't have an account, create new</a>
            </form>
       </div>
-   </div>
-</div>
+   </div> --}}
+{{-- </div>
     
 </body>
-</html
-	<!--main area-->
+</html --}} 
+
    
-	{{-- <main id="main" class="main-site left-sidebar">
 
-		<div class="container">
+    {{-- @endsection --}}
 
-			<div class="wrap-breadcrumb">
-				<ul>
-					<li class="item-link"><a href="#" class="link">home</a></li>
-					<li class="item-link"><span>login</span></li>
-				</ul>
-			</div>
-			<div class="row">
-				<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12 col-md-offset-3">
-					<div class=" main-content-area">
-						<div class="wrap-login-item ">						
-							<div class="login-form form-item form-stl">
-								<form name="frm-login" action="/" method="post">
-                                    @if(Session::get('fail'))
-                                    <div class="alert alert-danger">
-                                       {{ Session::get('fail') }}
-                                    </div>
-                                 @endif
-                                    @csrf
-                                    
-									<fieldset class="wrap-title">
-										<h3 class="form-title">Log in to your account</h3>										
-									</fieldset>
-									<fieldset class="wrap-input">
-										<label for="frm-login-uname">Email Address:</label>
-										<input type="text" id="frm-login-uname" name="email" placeholder="Type your email address" value="{{old('email')}}">
-                                        <span class="text-danger">@error('email'){{ $message }} @enderror</span>
-									</fieldset>
-									<fieldset class="wrap-input">
-										<label for="frm-login-pass">Password:</label>
-										<input type="password" id="frm-login-pass" name="password" placeholder="************">
-                                        <span class="text-danger">@error('password'){{ $message }} @enderror</span>
-									</fieldset>
-									
-									<fieldset class="wrap-input">
-										
-										<a class="link-function left-position" href="#" title="Forgotten password?">Forgotten password?</a>
-									</fieldset>
-									<input type="submit" class="btn btn-submit" value="Login" name="submit">
-                                    <br>
-                                    <br>
-                                     <a class="link-danger"  href="{{ route('auth.register') }}">I don't have an account, create new</a>
-                                     
-								</form>
-							</div>												
-						</div>
-					</div><!--end main products area-->		
-				</div>
-			</div><!--end row-->
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bootstrap Sign in Form with Avatar Icon</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="  {{ asset('/css/css1.css') }}">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script> 
+   
+    </head>
+    <body>
+    <div class="login-form my-5">
+      <form action="{{ route('auth.check') }}" method="post"  >
+         @if(Session::get('fail'))
+            <div class="alert alert-danger">
+               {{ Session::get('fail') }}
+            </div>
+         @endif
 
-		</div><!--end container-->
-
-	</main> --}}
-    @endsection
-	<!--main area-->
-  
+        @csrf
+          <div class="avatar my-5">
+           
+             <img src="{{ asset('images/Capture.PNG') }}" alt="mercado" width="40%">
+          </div>           
+            <div class="form-group">
+               <label>Email</label>
+               <input type="text" class="form-control" name="email" placeholder="Enter email address" value="{{ old('email') }}">
+                 <span class="text-danger">@error('email'){{ $message }} @enderror</span>
+            </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" name="password" placeholder="Enter password">
+            <span class="text-danger">@error('password'){{ $message }} @enderror</span>
+            </div>        
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-lg btn-block login-btn">Sign in</button>
+            </div>
+          <p class="hint-text">Don't have an account? <a href="{{ route('auth.register') }}">Sign up here</a></p>
+        </form>
+        
+    </div>
+    </body>
+    </html>

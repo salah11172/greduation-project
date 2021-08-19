@@ -1,4 +1,4 @@
-
+{{-- 
 @extends('layout.layout');
 
 @section('content')
@@ -81,4 +81,79 @@
 
 </main>
 <!--main area-->
-@endsection
+@endsection --}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Bootstrap Sign in Form with Avatar Icon</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" type="text/css" href="  {{ asset('/css/css1.css') }}">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script> 
+
+</head>
+<body>
+<div class="login-form my-5">
+    <form class="form-stl" action="{{ route('auth.save') }}" name="frm-login" method="POST" >
+        @if(Session::get('success'))
+        <div class="alert alert-success">
+           {{ Session::get('success') }}
+        </div>
+      @endif
+
+      @if(Session::get('fail'))
+        <div class="alert alert-danger">
+           {{ Session::get('fail') }}
+        </div>
+      @endif
+        @csrf
+      <div class="avatar my-5">
+       
+         <img src="{{ asset('images/Capture.PNG') }}" alt="mercado" width="40%">
+      </div>
+   
+      <div class="form-group">
+      <label>Name</label>
+      <input type="text" class="form-control" name="name" placeholder="Enter full name" value="{{ old('name') }}">
+      <span class="text-danger">@error('name'){{ $message }} @enderror</span> 
+     
+     </div>        
+
+        <div class="form-group">
+           <label>Email</label>
+           <input type="text" class="form-control" name="email" placeholder="Enter email address" value="{{ old('email') }}">
+             <span class="text-danger">@error('email'){{ $message }} @enderror</span>
+        </div>
+
+        <fieldset class="wrap-input ">
+            <label for="frm-reg-phone">Phone *</label>
+            <input type="tel" class="form-control" id="phone" name="phone" required placeholder="Enter phone number">
+            <span class="text-danger">@error('phone'){{ $message }} @enderror</span>
+        </fieldset>
+
+
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control" name="password" placeholder="Enter password">
+        <span class="text-danger">@error('password'){{ $message }} @enderror</span>
+        </div>
+        <fieldset class="wrap-input item-width-in-half ">
+            <label for="frm-reg-cfpass">Confirm Password *</label>
+            <input type="password" class="form-control" id="password" name="password_confirmation" required placeholder="Confirm Password">
+            <span class="text-danger">@error('password'){{ $message }} @enderror</span>
+        </fieldset>        
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg btn-block login-btn">Sign in</button>
+        </div>
+      <p class="hint-text">I already have an account <a href="{{ route('auth.login') }}">Sign in </a></p>
+    </form>
+    
+</div>
+</body>
+</html>
