@@ -106,6 +106,7 @@
             <span class="text-danger">@error('password'){{ $message }} @enderror</span>
             </div>        
             <div class="form-group">
+              
                 <button type="submit" class="btn btn-primary btn-lg btn-block login-btn">Sign in</button>
             </div>
           <p class="hint-text">Don't have an account? <a href="{{ route('auth.register') }}">Sign up here</a></p>

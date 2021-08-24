@@ -5,6 +5,8 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\admin\AdminCategortycontroller;
 use App\Http\Controllers\admin\AdminProductnController;
 use App\Http\Controllers\admin\Ordercontrollerforadmin;
+use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\admin\Usercontroller;
 use App\Http\Controllers\CommentController;
 
@@ -21,6 +23,7 @@ use App\Http\Controllers\MarqueeController;
 use App\Http\Controllers\orders\Orderscontroller;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SliderController;
+use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -154,6 +157,7 @@ Route::post('/updateuser/{userid}',[UserController::class,"updateuser"])->name("
 Route::post('/auth/save',[MainController::class, 'save'])->name('auth.save');
 Route::post('/auth/check',[MainController::class, 'check'])->name('auth.check');
 Route::get('/auth/logout',[MainController::class, 'logout'])->name('auth.logout');
+
 
 
 Route::group(['middleware'=>['AuthCheck']], function(){
