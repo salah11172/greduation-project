@@ -8,8 +8,14 @@ class CartController extends Controller
 {
     public function cartList()
     {
-        $cartItems = \Cart::getContent();
-        $Total = \Cart::getTotal();
+       
+        $userID = session('LoggedUser');
+        
+
+    
+        $cartItems = \Cart::session($userID)->getContent();
+        $Total = \Cart::session($userID)->getTotal();
+      
         // dd($cartItems);
         // dd($Total);
         return view('cart_page.cart', compact('cartItems'));
@@ -18,7 +24,8 @@ class CartController extends Controller
 
     public function addToCart(Request $request)
     {
-        \Cart::add([
+        $userID = session('LoggedUser');
+        \Cart::session($userID)->add([
             'id' => $request->id,
             'name' => $request->name,
             'price' => $request->price,
@@ -34,7 +41,8 @@ class CartController extends Controller
 
     public function updateCart(Request $request)
     {
-        \Cart::update(
+        $userID = session('LoggedUser');
+        \Cart::session($userID)->update(
             $request->id,
             [
                 'quantity' => [
@@ -51,7 +59,8 @@ class CartController extends Controller
 
     public function removeCart(Request $request)
     {
-        \Cart::remove($request->id);
+        $userID = session('LoggedUser');
+        \Cart::session($userID)->remove($request->id);
         session()->flash('success', 'Item Cart Remove Successfully !');
 
         return redirect()->route('cart.list');
@@ -59,7 +68,8 @@ class CartController extends Controller
 
     public function clearAllCart()
     {
-        \Cart::clear();
+        $userID = session('LoggedUser');
+        \Cart::session($userID)->clear();
 
         session()->flash('success', 'All Item Cart Clear Successfully !');
 

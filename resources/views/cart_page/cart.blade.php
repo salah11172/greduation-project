@@ -12,6 +12,7 @@
 				  </div>
 			  @endif
 				<h3 class="text-3xl text-bold">Cart List</h3>
+				{{-- <h3 class="text-3xl text-bold">{{$id}}</h3> --}}
 			  <div class="flex-1">
 				<table class="table table-hover" cellspacing="0">
 				  <thead>

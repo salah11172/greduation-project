@@ -25,6 +25,11 @@
       </button>
       <div class="collapse navbar-collapse " id="navbarSupportedContent ">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0  " >
+     
+            <li  class="nav-item">
+              <a href="/" class="nav-link active fs-3 mx-4" ><i class="fa fa-home"  aria-hidden="true"></i></a>
+            </li>
+        
 
           <li class="nav-item">
             <a class="nav-link active fs-3 mx-4" aria-current="page" href="{{route('showordersforadmin')}}">Orders</a>

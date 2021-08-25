@@ -53,6 +53,9 @@
 								</li>
 							</ul>
 						</div>
+
+						
+						
 						<div class="topbar-menu right-menu">
 							<ul>
 								@if( session()->get('LoggedUser') >= 1 )
@@ -194,7 +197,7 @@
 								<span>  </span>
 
 								@endif
-								<span style="color:white"> {{session()->get('LoggedUser')}}</span>
+								<span style="color:white"> {{session('LoggedUser')}}</span>
 								
 								
 									

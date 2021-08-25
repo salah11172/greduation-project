@@ -5,6 +5,8 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\admin\AdminCategortycontroller;
 use App\Http\Controllers\admin\AdminProductnController;
 use App\Http\Controllers\admin\Ordercontrollerforadmin;
+use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\admin\Usercontroller;
 use App\Http\Controllers\CommentController;
 
@@ -12,6 +14,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\shop\ShopCnotrller;
 use App\Models\Product;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OfferController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\DetailsController;
 use App\Http\Controllers\IndexController;
@@ -20,6 +23,7 @@ use App\Http\Controllers\MarqueeController;
 use App\Http\Controllers\orders\Orderscontroller;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SliderController;
+use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,6 +40,9 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('layout.layout');
 // });
+
+
+
 
 Route::get('contact-us/contact', [CommentController::class, 'index'])->name('comment.index');
 Route::get('contact-us/contact/create', [CommentController::class, 'create'])->name('comment.create');
@@ -140,6 +147,9 @@ Route::post("makeorder",[Orderscontroller::class,"storeorderitems"])->name("make
 
 Route::get("showusersforadmin",[Usercontroller::class,"showalluserforadmin"])->name("showalluserforadmin");
 Route::get('admindeleteuser/{userid}',[Usercontroller::class,"admindeleteuser"])->name("admindeleteuser");
+Route::get('adminupdateeuser/{userid}',[Usercontroller::class,"adminupdateuser"])->name("adminupdateuser");
+Route::post('/updateuser/{userid}',[UserController::class,"updateuser"])->name("updateuser");
+
 
 
 
@@ -147,6 +157,7 @@ Route::get('admindeleteuser/{userid}',[Usercontroller::class,"admindeleteuser"])
 Route::post('/auth/save',[MainController::class, 'save'])->name('auth.save');
 Route::post('/auth/check',[MainController::class, 'check'])->name('auth.check');
 Route::get('/auth/logout',[MainController::class, 'logout'])->name('auth.logout');
+
 
 
 Route::group(['middleware'=>['AuthCheck']], function(){

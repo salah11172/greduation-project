@@ -18,4 +18,20 @@ public function admindeleteuser($id)
     User::find($id)->delete();
     return redirect()->back();
 }
+
+public function adminupdateuser($id)
+{
+    $data= User::find($id);
+    
+ return view("admin.user.edit",["userinfo"=>$data]);
+}
+
+
+public function updateuser(Request $request, $id)
+{
+    $user = User::find($id);
+     $user->update($request->all());
+     return redirect()->route('showalluserforadmin');
+}
+
 }
