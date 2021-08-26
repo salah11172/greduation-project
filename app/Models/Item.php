@@ -12,6 +12,7 @@ class Item extends Model
         'quantity',
         'price',
         'name',
+        
         'product_id',
         'order_id',
         'subtotl',
