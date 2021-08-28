@@ -9,6 +9,8 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\admin\Usercontroller;
 use App\Http\Controllers\CommentController;
+use App\Http\Middleware\SetLocal;
+
 
 
 use App\Http\Controllers\shop\ShopCnotrller;
@@ -36,10 +38,17 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::group(['prefix' => '{local}'] ,function() {
 
-// Route::get('/', function () {
-//     return view('layout.layout');
-// });
+    
+    Route::group(['middleware'=>['SetLocal']], function(){
+
+         Route::get('/', function () {
+               return view('layout.layout');
+         });
+});
+});
+
 
 
 
