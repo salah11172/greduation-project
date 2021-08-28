@@ -166,12 +166,11 @@ p {
   </style>
 </head>
 <body>
+   <h3 style="color: red"> see your delivered history orderes <a href="{{route("getsucessfuloreders")}}">click here </a> </h3>
   @if(count($data)>0)
 <div class="container">
  <div> <h1 style="margin-left: 400px">processing orderes<h1></div>
   @foreach ( $data as $order )
-    
-  
   <article class="card">
       <div class="card-body">
           <article class="card">
@@ -227,71 +226,31 @@ p {
           <hr>
           <ul class="row">
             @foreach ($order->itemes as $key =>$val )
-
               <li class="col-md-4">
                   <figure class="itemside mb-3">
                       <div class="aside"><img src="{{asset('images/products/'.$val->image)}}" class="img-sm border"></div>
                       <figcaption class="info align-self-center">
                           <p class="title">name : {{$val['name']}} <br> quantatiy : {{$val['quantity']}}</p> <span class="text-muted">price : {{$val['price']}}$ </span><br><span class="text-muted">subtotal : {{$val['subtotl']}}$ </span>
                       </figcaption>
+                      
                   </figure>
+                  
               </li>
               @endforeach
-              
           </ul>
-         
+          
       </div>
   </article>
+  <br>
+  <br>
+  <br>
   @endforeach
 </div>
-<hr>
-<hr>
+
+
 @endif
 
-@if (count($sucessfulorders)>0)
-<div> <h1 style="margin-left:600px">delviered orders <h1></div>
-    <div class="container">
-         @foreach ( $sucessfulorders as $order )
-         <article class="card">
-             <div class="card-body">
-                 <article class="card">
-                     <div class="card-body row">
-                       <div class='col-lg-4'><h4> order number : {{$order['id']}}</h4></div>
-                       <div class='col-lg-4'><h4> total_price : {{$order['totalprice']}}</h4></div>
-                       <div class='col-lg-4'><h4> status :@if($order['status']=="pending") confirmed @endif </h4></div>
-                     </div>
-                 </article>
-                     <div class="track">
-                       <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">confirmed</span> </div>
-                       <div class="step active "> <span class="icon"> <i class="fa fa-user"></i> </span> <span class="text"> dispatched</span> </div>
-                       <div class="step active"> <span class="icon"> <i class="fa fa-truck"></i> </span> <span class="text"> processed </span> </div>
-                       <div class="step active"> <span class="icon"> <i class="fa fa-box"></i> </span> <span class="text">shipped</span> </div>
-                       <div class="step active"> <span class="icon"> <i class="fa fa-box"></i> </span> <span class="text">delivered</span> </div>
-                   </div>  
 
-                 <hr>
-                 <ul class="row">
-                   @foreach ($order->itemes as $key =>$val )
-       
-                     <li class="col-md-4">
-                         <figure class="itemside mb-3">
-                             <div class="aside"><img src="{{asset('images/products/'.$val->image)}}" class="img-sm border"></div>
-                             <figcaption class="info align-self-center">
-                                 <p class="title">name : {{$val['name']}} <br> quantatiy : {{$val['quantity']}}</p> <span class="text-muted">price : {{$val['price']}}$ </span><br><span class="text-muted">subtotal : {{$val['subtotl']}}$ </span>
-                             </figcaption>
-                         </figure>
-                     </li>
-                     @endforeach
-                     
-                 </ul>
-                
-             </div>
-         </article>
-         @endforeach
-       </div>
-       <hr>
-       <hr>
-       @endif
 </body>
 </html>
 @endsection

@@ -15,7 +15,8 @@ class Orderscontroller extends Controller
    }
    public function storeorderitems(Request $req)
    {
-    
+    $userID = session('LoggedUser');
+
         //$text="asda";
        // dd($text);
        $req->validate( [
@@ -34,23 +35,25 @@ class Orderscontroller extends Controller
         $order->lastname=$req->lastname;
         $order->email=$req->email;
         $order->city=$req->city;
-        $order->totalprice=\Cart::getTotal();
+        $order->totalprice=\Cart::session($userID)->getTotal();
         $order->user_id=session()->get('LoggedUser');
         $order->save();
-           foreach(\Cart::getContent() as $index =>$val)
+           foreach(\Cart::session($userID)->getContent() as $index =>$val)
            {
+
             Item::create(
                 [
                     "quantity"=>$val['quantity'],
                     "price"=>$val['price'],
                     "name"=>$val['name'],
-                   "product_id"=>$val['id'],
+                   "product_id"=>$index,
                    "subtotl"=>$val->getPriceSum(),
                    "order_id"=>$order->id,
                    "image"=>$val->attributes['image'],
                 ]);
             }
-            \Cart::clear();
+
+            \Cart::session($userID)->clear();
         return redirect()->route('trackordersforuser') ;
     }
     
