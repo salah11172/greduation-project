@@ -59,12 +59,24 @@
 						<div class="topbar-menu right-menu">
 							<ul>
 								@if( session()->get('LoggedUser') >= 1 )
-                                  <li class="menu-item" ><a title="Register or Login" href="{{route('auth.logout')}}">Log out</a></li>
+                                  <li class="menu-item " ><div><a title="Register or Login" href="{{route('auth.logout')}}">	<span> @lang('auth.logout')</span></a></div></li>
 								@else
-								  <li class="menu-item" ><a title="Register or Login" href="{{route('auth.login')}}">Log in</a></li>
-							  	<li class="menu-item" ><a title="Register or Login" href="{{route('auth.register')}}">Register</a></li>
+								  <li class="menu-item  " > <a title="Register or Login"  href="{{route('auth.login')}}">	<span> @lang('auth.login')</span></a></li>
+							  	<li class="menu-item" ><a title="Register or Login" href="{{route('auth.register')}}">	<span> @lang('auth.register')</span></a></li>
 								@endif
 								</li>
+
+							
+								<div  style="display: inline"  >
+										<a class="btn  dropdown-toggle" style="color:black"  id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+										 {{app()->getLocale() =='ar' ?'العربية':'English'}}
+										</a>
+										<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+										  <li><a class="dropdown-item" href="{{url('en')}}"> {{app()->getLocale() =='ar' ?'English':''}}</a></li>
+										  <li><a class="dropdown-item" href="{{url('ar')}}"> {{app()->getLocale() =='en' ?'العربية':''}}</a></li>
+										 
+										</ul>
+									  </div>
 							
 							</ul>
 						</div>
@@ -87,7 +99,7 @@
 							<div class="wrap-search-form">
 								<form action="{{route('searchproducts')}}" method="POST" id="form-search-top" name="form-search-top">
 									@csrf
-									<input type="text" name="search" value="" placeholder="Search here...">
+									<input type="text" name="search" value="" placeholder=" @lang('auth.search')">
 									<button name="sad" form="form-search-top" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
 									
 								</form>
@@ -100,7 +112,7 @@
 									<i class="fa fa-heart" aria-hidden="true" id="heartbeat"></i>
 									<div class="left-info">
 										<span class="index"># item</span>
-										<span class="title">Wishlist</span>
+										<span class="title">@lang('auth.Wishlist')</span>
 									</div>
 								</a>
 							</div>
@@ -109,7 +121,7 @@
 									<i class="fa fa-shopping-basket" aria-hidden="true" id="shake-top"></i>
 									<div class="left-info">
 										<span class="index">{{ Cart::getTotalQuantity()}} items</span>
-										<span class="title">CART</span>
+										<span class="title">@lang('auth.cart')</span>
 									</div>
 								</a>
 							</div>
@@ -177,21 +189,22 @@
 								<li class="menu-item home-icon">
 									<a href="/" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
 								</li>
+								
 								<li class="menu-item">
-									<a href="{{route('about_us.about')}}" class="link-term mercado-item-title">About Us</a>
+									<a href="{{route('shopproduct')}}" class="link-term mercado-item-title">@lang('auth.shop')</a>
 								</li>
 								<li class="menu-item">
-									<a href="{{route('shopproduct')}}" class="link-term mercado-item-title">Shop</a>
+									<a href="{{route('cart.list')}}" class="link-term mercado-item-title">@lang('auth.cart')</a>
 								</li>
 								<li class="menu-item">
-									<a href="{{route('cart.list')}}" class="link-term mercado-item-title">Cart</a>
+									<a href="{{route('comment.create')}}" class="link-term mercado-item-title">@lang('auth.contact')</a>
 								</li>
 								<li class="menu-item">
-									<a href="{{route('comment.create')}}" class="link-term mercado-item-title">Contact Us</a>
+									<a href="{{route('about_us.about')}}" class="link-term mercado-item-title">@lang('auth.about')</a>
 								</li>	
 								@if( session()->get('LoggedUser') >= 1 )
 								<li class="menu-item">
-									<a href="{{route('trackordersforuser')}}" class="link-term mercado-item-title">my orders</a>
+									<a href="{{route('trackordersforuser')}}" class="link-term mercado-item-title">@lang('auth.order')</a>
 								</li>
 								@else 
 								<span>  </span>
@@ -212,16 +225,16 @@
 									<a href="{{route('shopproduct')}}" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
 								</li>
 								<li class="menu-item">
-									<a href="{{route('about_us.about')}}" class="link-term mercado-item-title">About Us</a>
+									<a href="{{route('about_us.about')}}" class="link-term mercado-item-title">@lang('auth.about')</a>
 								</li>
 								<li class="menu-item">
-									<a href="{{route('shopproduct')}}" class="link-term mercado-item-title">Shop</a>
+									<a href="{{route('shopproduct')}}" class="link-term mercado-item-title">@lang('auth.shop')</a>
 								</li>
 								<li class="menu-item">
-									<a href="{{route('cart.list')}}" class="link-term mercado-item-title">Cart</a>
+									<a href="{{route('cart.list')}}" class="link-term mercado-item-title">@lang('auth.cart')</a>
 								</li>
 								<li class="menu-item">
-									<a href="{{route('comment.create')}}" class="link-term mercado-item-title">Contact Us</a>
+									<a href="{{route('comment.create')}}" class="link-term mercado-item-title">@lang('auth.contact')</a>
 								</li>	
 								
 									@endif
@@ -237,7 +250,7 @@
 		</div>
 	</header>
 	
-
+<h1> @lang('auth.title')<h1>
 	<!-- here is the cpntent -->
 @yield('content')
 
@@ -251,32 +264,32 @@
 						<li class="fc-info-item">
 							<i class="fa fa-truck" aria-hidden="true"></i>
 							<div class="wrap-left-info">
-								<h4 class="fc-name">Free Shipping</h4>
-								<p class="fc-desc">Free On Oder Over $99</p>
+								<h4 class="fc-name"> @lang('auth.s1')</h4>
+								<p class="fc-desc" > @lang('auth.s2')  </p>
 							</div>
 
 						</li>
 						<li class="fc-info-item">
 							<i class="fa fa-recycle" aria-hidden="true"></i>
 							<div class="wrap-left-info">
-								<h4 class="fc-name">Guarantee</h4>
-								<p class="fc-desc">30 Days Money Back</p>
+								<h4 class="fc-name">@lang('auth.s3')</h4>
+								<p class="fc-desc"> @lang('auth.s4')</p>
 							</div>
 
 						</li>
 						<li class="fc-info-item">
 							<i class="fa fa-credit-card-alt" aria-hidden="true"></i>
 							<div class="wrap-left-info">
-								<h4 class="fc-name">Safe Payment</h4>
-								<p class="fc-desc">Safe your online payment</p>
+								<h4 class="fc-name"> @lang('auth.s5')</h4>
+								<p class="fc-desc"> @lang('auth.s6')</p>
 							</div>
 
 						</li>
 						<li class="fc-info-item">
 							<i class="fa fa-life-ring" aria-hidden="true"></i>
 							<div class="wrap-left-info">
-								<h4 class="fc-name">Online Suport</h4>
-								<p class="fc-desc">We Have Support 24/7</p>
+								<h4 class="fc-name"> @lang('auth.s7')</h4>
+								<p class="fc-desc"> @lang('auth.s8')</p>
 							</div>
 
 						</li>
@@ -293,17 +306,17 @@
 
 						<div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
 							<div class="wrap-footer-item">
-								<h3 class="item-header">Contact Details</h3>
+								<h3 class="item-header">  @lang('auth.s9')</h3>
 								<div class="item-content">
 									<div class="wrap-contact-detail">
 										<ul>
 											<li>
 												<i class="fa fa-map-marker" aria-hidden="true"></i>
-												<p class="contact-txt">address : mansoura</p>
+												<p class="contact-txt">@lang('auth.s10')</p>
 											</li>
 											<li>
 												<i class="fa fa-phone" aria-hidden="true"></i>
-												<p class="contact-txt">Hotline: (+123) 456 789</p>
+												<p class="contact-txt">@lang('auth.phone')</p>
 											</li>
 											<li>
 												<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -320,12 +333,12 @@
 							
 
 							<div class="wrap-footer-item footer-item-second">
-								<h3 class="item-header">Sign up for newsletter</h3>
+								<h3 class="item-header">@lang('auth.s11')</h3>
 								<div class="item-content">
 									<div class="wrap-newletter-footer">
 										<form action="#" class="frm-newletter" id="frm-newletter">
-											<input type="email" class="input-email" name="email" value="" placeholder="Enter your email address">
-											<button class="btn-submit">Subscribe</button>
+											<input type="email" class="input-email" name="email" value="" placeholder=" @lang('auth.s12')">
+											<button class="btn-submit"> @lang('auth.subscribe')</button>
 										</form>
 									</div>
 								</div>
@@ -339,7 +352,7 @@
 
 						<div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
 							<div class="wrap-footer-item">
-								<h3 class="item-header">Social network</h3>
+								<h3 class="item-header"> @lang('auth.social')</h3>
 								<div class="item-content">
 									<div class="wrap-list-item social-network">
 										<ul>
@@ -369,5 +382,7 @@
 	<script src="{{ asset('/js/jquery.countdown.min.js') }}"></script>
 	<script src="{{ asset('/js/jquery.sticky.js') }}"></script>
 	<script src="{{ asset('/js/functions.js') }}"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
 </body>
 </html>
