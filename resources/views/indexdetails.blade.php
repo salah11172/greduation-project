@@ -33,7 +33,9 @@
                         <div class="wrap-social">
                             <a class="link-socail" href="#"><img src="/images/social-list.png" alt=""></a>
                         </div>
-                        <div class="wrap-price"><span class="product-price">${{ $Product->price }}</span></div><br><br>
+                        <div class="wrap-price"><span class="product-price">
+                            ${{ $Product->price }}
+                        </span></div><br><br>
                         <div class="stock-info in-stock">
                             <p class="availability">Availability: <b>{{ $Product->quantity }}</b></p>
                         </div>
@@ -42,7 +44,9 @@
                                 @csrf
                                 <input type="hidden" value="{{ $Product->id }}" name="id">
                                 <input type="hidden" value="{{ $Product->name }}" name="name">
-                                <input type="hidden" value="{{ $Product->price }}" name="price">
+                              
+								<input type="hidden" value= "{{ $Product->price }}" name="price">
+										
                                 <input type="hidden" value="{{ $Product->image }}"  name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button class="btn add-to-cart"><span class="carts" style="color: #888888">Add To Cart</span></button>
