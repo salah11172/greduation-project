@@ -33,4 +33,10 @@ class Ordercontrollerforadmin extends Controller
         $processedorders=Order::where("user_id",session()->get('LoggedUser'))->where("status","!=","delivered")->get();
         return view('orderlistforuser.thankyu',["data"=>$processedorders,"sucessfulorders"=>$sucessfulorders]); 
    }
+   public function getsusessful()
+   {
+    $sucessfulorders=Order::where("user_id",session()->get('LoggedUser'))->where("status","delivered")->get();
+
+       return view("orderlistforuser.sucessful",["sucessfulorders"=>$sucessfulorders]);
+   }
 }

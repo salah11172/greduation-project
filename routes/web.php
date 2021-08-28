@@ -198,6 +198,9 @@ Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear'
 Route::get("trackorderforuser",[Ordercontrollerforadmin::class,"getuserorders"])->name("trackordersforuser");
 Route::get("orderslistforadmin",[Ordercontrollerforadmin::class,"showallorders"])->name("showordersforadmin");
 Route::post("updatestatus/{orderid}",[Ordercontrollerforadmin::class,"updatestatus"])->name("updatestatus");
+Route::get("sucessfulorderes",[Ordercontrollerforadmin::class,"getsusessful"])->name("getsucessfuloreders");
+
+
 
    
 

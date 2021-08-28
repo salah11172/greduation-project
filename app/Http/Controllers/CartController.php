@@ -10,9 +10,6 @@ class CartController extends Controller
     {
        
         $userID = session('LoggedUser');
-        
-
-    
         $cartItems = \Cart::session($userID)->getContent();
         $Total = \Cart::session($userID)->getTotal();
       
