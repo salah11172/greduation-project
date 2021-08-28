@@ -41,12 +41,12 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => '{local}'] ,function() {
 
     
-    Route::group(['middleware'=>['SetLocal']], function(){
+//     Route::group(['middleware'=>['SetLocal']], function(){
 
-         Route::get('/', function () {
-               return view('layout.layout');
-         });
-});
+//          Route::get('/', function () {
+//                return view('layout.layout');
+//          });
+// });
 });
 
 
@@ -94,7 +94,7 @@ Route::get('/shop', [ProductController::class, 'productList'])->name('products.l
 
 // About Us
 
-// Route::get('/aboutus', [AboutController::class, 'aboutus'])->name('about_us.about');
+Route::get('/aboutus', [AboutController::class, 'aboutus'])->name('about_us.about');
 
 // Details Page
 
@@ -179,6 +179,7 @@ Route::get("/delete/{productid}",[AdminProductnController::class,"destroy"])->na
 Route::post("/store",[AdminProductnController::class,"store"])->name("productstore");
 Route::get("/adminshow",[AdminProductnController::class,"showtableproducts"])->name("adminproductlist");
 Route::get("/gotoadmindashboard",[AdminProductnController::class,"gotoadmin"])->name("gotoadmin");
+Route::get('/addSale',[AdminProductnController::class,"addSale"]);
 Route::get("/edit/{productid}",[AdminProductnController::class,"edit"])->name("editproduct");
 Route::post("/update/{productid}",[AdminProductnController::class,"update"])->name("updateproduct");
 

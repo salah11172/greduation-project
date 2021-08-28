@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 
 class AdminProductnController extends Controller
@@ -122,5 +123,13 @@ class AdminProductnController extends Controller
     public function gotoadmin()
     {
         return view("admin.admindashbord");
+    }
+    public function addSale(Request $request){
+       
+        $salePrice = $request->salePrice;
+        $pro_id = $request->pro_id;
+       
+        DB::table('products')->where('id', $pro_id)->update(['spl_price' =>  $salePrice]);
+        echo 'added successfully';
     }
 }

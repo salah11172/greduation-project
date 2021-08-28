@@ -33,7 +33,35 @@
                         <div class="wrap-social">
                             <a class="link-socail" href="#"><img src="/images/social-list.png" alt=""></a>
                         </div>
-                        <div class="wrap-price"><span class="product-price">${{ $Product->price }}</span></div><br><br>
+                        <div class="wrap-price"><span class="product-price">
+                            <!-- ${{ $Product->price }} -->
+                            @if($Product->spl_price ==0)
+                                    ${{$Product->price}}
+                                     <input type="hidden" value="{{$Product->price}}"
+                                      name="newPrice"/>
+                                      @else
+                                      <h2 style="color:red">It Is On Sale</h2><br>
+                                    <b style="text-decoration:line-through; color:#ddd">
+                                      ${{$Product->price}} </b>
+                                       ${{$Product->spl_price}}
+                                       <input type="hidden" value="{{$Product->spl_price}}"
+                                        name="newPrice"/>
+                                        
+                                      @endif
+                                      </span></div><br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
                         <div class="stock-info in-stock">
                             <p class="availability">Availability: <b>{{ $Product->quantity }}</b></p>
                         </div>
@@ -42,7 +70,11 @@
                                 @csrf
                                 <input type="hidden" value="{{ $Product->id }}" name="id">
                                 <input type="hidden" value="{{ $Product->name }}" name="name">
-                                <input type="hidden" value="{{ $Product->price }}" name="price">
+                                @if( $Product->spl_price == 0)
+											<input type="hidden" value= "{{ $Product->price }}" name="price">
+											@else
+											<input type="hidden" value= "{{ $Product->spl_price }}" name="price">
+											@endif
                                 <input type="hidden" value="{{ $Product->image }}"  name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button class="btn add-to-cart"><span class="carts" style="color: #888888">Add To Cart</span></button>

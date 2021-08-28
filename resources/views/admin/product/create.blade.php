@@ -1,10 +1,13 @@
 @extends('admin.adminlayout.layout')
 @section("content")
+
+
 <br>
 <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12 col-md-offset-3">
     <div class=" main-content-area">
         <div class="wrap-login-item ">						
             <div class="login-form form-item form-stl">
+            <?php $count =1;?>
                 <form method="POST" action="{{route("productstore")}}" enctype="multipart/form-data" name="frm-login">
                     @csrf
                     <fieldset class="wrap-title">
@@ -30,6 +33,8 @@
                         <label for="frm-login-pass">price:</label>
                         <input type="text" id="frm-login-pass" name="price" placeholder="product price">
                     </fieldset>
+
+                    
                     
                     <fieldset class="wrap-input">
                         <label for="frm-login-pass">productimage:</label>
