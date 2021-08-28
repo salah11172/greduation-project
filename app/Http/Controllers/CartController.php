@@ -10,8 +10,8 @@ class CartController extends Controller
     {
         $cartItems = \Cart::getContent();
         $Total = \Cart::getTotal();
-        // dd($cartItems);
-        // dd($Total);
+        //   dd($cartItems);
+        //  dd($Total);
         return view('cart_page.cart', compact('cartItems'));
     }
 

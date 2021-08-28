@@ -57,7 +57,8 @@
 					  <td class="text-right md:table-cell">
 						<span class="text-sm font-medium lg:text-base">
 						
-						@if($item->spl_price == 0)	
+						@if($item->spl_price == 0)
+						
 						${{ $item->price }}
 						@else
 						${{ $item->spl_price }}

@@ -83,7 +83,11 @@
 											@csrf
 											<input type="hidden" value="{{ $product->id }}" name="id">
 											<input type="hidden" value="{{ $product->name }}" name="name">
-											<input type="hidden" value="{{ $product->price }}" name="price">
+											@if( $product->spl_price == 0)
+											<input type="hidden" value= "{{ $product->price }}" name="price">
+											@else
+											<input type="hidden" value= "{{ $product->spl_price }}" name="price">
+											@endif
 											<input type="hidden" value="{{ $product->image }}"  name="image">
 											<input type="hidden" value="1" name="quantity">
 											<button class="btn add-to-cart"><span class="carts" style="color: #888888">Add To Cart</span></button>
