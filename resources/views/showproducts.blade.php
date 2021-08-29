@@ -18,6 +18,7 @@
                 <a href="{{route('indexdetails',['id'=>$product['id']])}}" class="product-name"><span>{{$product['name']}}</span></a>
                 <div class="wrap-price"><span class="product-price">${{$product['price']}}</span></div>
                 
+                
                 @if ($product->quantity != 0)
 				<form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
 					@csrf

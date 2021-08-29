@@ -67,7 +67,7 @@
 								</li>
 
 							
-								<div  style="display: inline"  >
+								{{-- <div  style="display: inline"  >
 										<a class="btn  dropdown-toggle" style="color:black"  id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
 										 {{app()->getLocale() =='ar' ?'العربية':'English'}}
 										</a>
@@ -76,7 +76,7 @@
 										  <li><a class="dropdown-item" href="{{url('ar')}}"> {{app()->getLocale() =='en' ?'العربية':''}}</a></li>
 										 
 										</ul>
-									  </div>
+									  </div> --}}
 							
 							</ul>
 						</div>
@@ -107,7 +107,7 @@
 						</div>
 
 						<div class="wrap-icon right-section">
-							<div class="wrap-icon-section wishlist">
+							{{-- <div class="wrap-icon-section wishlist">
 								<a href="#" class="link-direction">
 									<i class="fa fa-heart" aria-hidden="true" id="heartbeat"></i>
 									<div class="left-info">
@@ -115,7 +115,7 @@
 										<span class="title">@lang('auth.Wishlist')</span>
 									</div>
 								</a>
-							</div>
+							</div> --}}
 							<div class="wrap-icon-section minicart">
 								<a href="{{route('cart.list')}}" class="link-direction">
 									<i class="fa fa-shopping-basket" aria-hidden="true" id="shake-top"></i>
@@ -220,6 +220,13 @@
 								  <li class="menu-item">
 									<a href="{{route('showordersforadmin')}}" class="link-term mercado-item-title">admindashborad</a>
 								</li>	
+
+								<li class="menu-item">
+									<a href="/" class="link-term mercado-item-title">HomePage</a>
+								</li>
+								<li class="menu-item">
+									<a href="{{route('shopproduct')}}" class="link-term mercado-item-title">Proudct</a>
+								</li>
 							     @else
 								 <li class="menu-item home-icon">
 									<a href="{{route('shopproduct')}}" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
@@ -250,7 +257,7 @@
 		</div>
 	</header>
 	
-<h1> @lang('auth.title')<h1>
+{{-- <h1> @lang('auth.title')<h1> --}}
 	<!-- here is the cpntent -->
 @yield('content')
 

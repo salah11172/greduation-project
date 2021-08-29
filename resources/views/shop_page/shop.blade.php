@@ -8,8 +8,9 @@
 		  $( "#slider-range" ).slider({
 				range: true,
 				min: 0,
-				max: 20,
-				values: [ 0, 20],
+				max: 1000,
+				step:10,
+				values: [ 0,500],
 				slide: function( event, ui ) {
 					$( "#amount_start" ).val( ui.values[0] );
 					$( "#amount_end" ).val( ui.values[1] );

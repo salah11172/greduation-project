@@ -98,7 +98,7 @@
 			<div class="checkout-info">
 				
 				<a class="btn btn-checkout" href="{{route('orderpage')}}">Check out</a>
-				<a class="link-to-shop" href="{{route('products.list')}}">Continue Shopping<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+				<a class="link-to-shop" href="{{route('shopproduct')}}">Continue Shopping<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
 			</div>
 		</div>
 	</div>
