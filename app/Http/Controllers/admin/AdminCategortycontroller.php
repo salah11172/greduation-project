@@ -61,9 +61,20 @@ class AdminCategortycontroller extends Controller
      */
     public function update(Request $request, $categoryid)
     {
+      $request->validate( [
+        'name' => 'required|max:255|unique:categories,name',
+        'description' => 'required|max:255',
+        
+    ],[
+      'name.required' => 'please enter your name',
+      'description.required' => 'please enter your description',
+
+  ]);
+
        $category = Category::find($categoryid);
        $category->update($request->all());
-         return redirect()->route('admin.category.categorypageforadmin')->with(["updatemessage"=>"category has been updated sucessfuly"]);
+       
+         return redirect()->route('go_category_for_admin')->with(["updatemessage"=>"category has been updated sucessfuly"]);
     }
     
 }

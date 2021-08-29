@@ -229,7 +229,7 @@
 								</li>
 							     @else
 								 <li class="menu-item home-icon">
-									<a href="{{route('shopproduct')}}" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
+									<a href="/" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
 								</li>
 								<li class="menu-item">
 									<a href="{{route('about_us.about')}}" class="link-term mercado-item-title">@lang('auth.about')</a>

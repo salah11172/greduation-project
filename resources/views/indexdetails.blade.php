@@ -33,7 +33,14 @@
                         <div class="wrap-social">
                             <a class="link-socail" href="#"><img src="/images/social-list.png" alt=""></a>
                         </div>
-                        <div class="wrap-price"><span class="product-price">${{ $Product->price }}</span></div><br><br>
+                        <div class="wrap-price">
+                            <span class="product-price">
+                            @if ($Product['quantity'] < 2)
+                            ${{$Product['price']*0.5}}
+                                
+                            @endif
+                           </span>
+                    </div><br>
                         <div class="stock-info in-stock">
                             <p class="availability">Availability: <b>{{ $Product->quantity }}</b></p>
                         </div>

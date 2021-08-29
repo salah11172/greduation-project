@@ -24,9 +24,9 @@
         <div class="wrap-show-advance-info-box style-1">
             <h3 class="title-box">Latest Products</h3>
             <div class="wrap-top-banner">
-                <a href="{{route('products.list')}}" class="link-banner banner-effect-2">
+                <div href="" class="link-banner banner-effect-2">
                     <figure><img src="/images/cover.jpg" width="1170" height="240" alt="" style="height: 30rem;"></figure>
-                </a>
+                </div>
             </div>
             
             <div class="wrap-products">

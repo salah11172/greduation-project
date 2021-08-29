@@ -48,7 +48,9 @@ Route::group(['prefix' => '{local}'] ,function() {
 //          });
 // });
 });
-
+         Route::get('/', function () {
+               return view('layout.layout');
+         });
 
 
 
