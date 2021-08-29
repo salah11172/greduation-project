@@ -12,8 +12,8 @@
                         <label for="frm-login-uname">name</label>
                         <input type="text" id="frm-login-uname" name="name" placeholder="category name" value="{{$categoryinfo['name']}}">
                         @error('name')
-                         <div class="alert alert-danger">{{ $message }}</div>
-                              @enderror
+                        <div class="alert alert-danger">{{ $message }}</div>
+                         @enderror
                     </fieldset>
                     <fieldset class="wrap-input">
                         <label for="frm-login-pass">description:</label>
