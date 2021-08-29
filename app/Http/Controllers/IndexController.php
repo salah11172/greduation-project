@@ -19,7 +19,7 @@ class IndexController extends Controller
     $imgSlider = Slider::all();
     // dd($imgSlider);
 
-      $product=Product::where("quantity",'<',20)->get();
+      $product=Product::where("quantity",'<',2)->get();
     // dd($product);
       $data=Category::all();
       // dd($data);

@@ -47,6 +47,7 @@
                         @if ($Product->quantity != 0)
                             <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
+                              
                                 <input type="hidden" value="{{ $Product->id }}" name="id">
                                 <input type="hidden" value="{{ $Product->name }}" name="name">
                                 <input type="hidden" value="{{ $Product->price }}" name="price">
