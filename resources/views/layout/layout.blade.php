@@ -186,7 +186,7 @@
 								{@if( session()->get('UserType') == 0 ) 
 							
 								
-								<li class="menu-item home-icon">
+								<li class="menu-item ">
 									<a href="/" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
 								</li>
 								
@@ -228,12 +228,10 @@
 									<a href="{{route('shopproduct')}}" class="link-term mercado-item-title">Proudct</a>
 								</li>
 							     @else
-								 <li class="menu-item home-icon">
+								 <li class="menu-item ">
 									<a href="/" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
 								</li>
-								<li class="menu-item">
-									<a href="{{route('about_us.about')}}" class="link-term mercado-item-title">@lang('auth.about')</a>
-								</li>
+								
 								<li class="menu-item">
 									<a href="{{route('shopproduct')}}" class="link-term mercado-item-title">@lang('auth.shop')</a>
 								</li>
@@ -243,6 +241,9 @@
 								<li class="menu-item">
 									<a href="{{route('comment.create')}}" class="link-term mercado-item-title">@lang('auth.contact')</a>
 								</li>	
+								<li class="menu-item">
+									<a href="{{route('about_us.about')}}" class="link-term mercado-item-title">@lang('auth.about')</a>
+								</li>
 								
 									@endif
 							

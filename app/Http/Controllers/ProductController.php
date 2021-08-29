@@ -6,12 +6,12 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function productList()
-    {
-        $products = Product::paginate(6);
-        // dd($products);
+    // public function productList()
+    // {
+    //     $productdata = Product::paginate(6);
+    //     // dd($productdata);
 
-        return view('shop_page.shop', compact('products'));
-    }
+    //     return view('shop_page.shop', compact('productdata'));
+    // }
 }
   
