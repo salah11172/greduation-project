@@ -29,6 +29,19 @@
 		<script src="{{ asset('/js/functions.js') }}"></script>
 
     </head>
+	<style>
+		
+		.link-term:hover {
+			border: solid black 2px;
+
+		}
+		.link-term:active {
+			border: solid red 2px;
+
+		}
+	
+
+	</style>
 <body class="inner-page about-us ">
 
 	<!-- mobile menu -->
@@ -381,6 +394,7 @@
 				
 			</div>
 		</div>
+	
 	</footer>
 	<script src="{{ asset('/js/jquery-1.12.4.minb8ff.js?ver=1.12.4') }}"></script>
 	<script src="{{ asset('/js/jquery-ui-1.12.4.minb8ff.js?ver=1.12.4') }}"></script>

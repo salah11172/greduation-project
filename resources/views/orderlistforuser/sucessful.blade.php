@@ -11,12 +11,12 @@
   <style>
     @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 
-body {
+/* body {
     background-color: #eeeeee;
     font-family: 'Open Sans', serif
-}
+} */
 
-.container {
+/* .container {
     margin-top: 50px;
     margin-bottom: 50px
 }
@@ -162,43 +162,51 @@ p {
     background-color: #ff2b00;
     border-color: #ff2b00;
     border-radius: 1px
-}
+} */
   </style>
 </head>
 <body>
 @if (count($sucessfulorders)>0)
-<div> <h1 style="margin-left:600px">delviered orders <h1></div>
-    <div class="container">
+<div > <h1 style="margin-left:600px">delviered orders <h1></div>
+    <div  class="container">
          @foreach ( $sucessfulorders as $order )
-         <article class="card">
+         <article class="card" style="border: solid black 3px">
              <div class="card-body">
                  <article class="card">
                      <div class="card-body row">
                        <div class='col-lg-4'><h4> order number : {{$order['id']}}</h4></div>
                        <div class='col-lg-4'><h4> total_price : {{$order['totalprice']}}</h4></div>
-                       <div class='col-lg-4'><h4> status :@if($order['status']=="pending") confirmed @endif </h4></div>
+                       <div class='col-lg-4'><h4> status :delivered  </h4></div>
                      </div>
                  </article>
-                     <div class="track">
-                       <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">confirmed</span> </div>
-                       <div class="step active "> <span class="icon"> <i class="fa fa-user"></i> </span> <span class="text"> dispatched</span> </div>
-                       <div class="step active"> <span class="icon"> <i class="fa fa-truck"></i> </span> <span class="text"> processed </span> </div>
-                       <div class="step active"> <span class="icon"> <i class="fa fa-box"></i> </span> <span class="text">shipped</span> </div>
-                       <div class="step active"> <span class="icon"> <i class="fa fa-box"></i> </span> <span class="text">delivered</span> </div>
-                   </div>  
+               
+                     
 
                  <hr>
                  <ul class="row">
                    @foreach ($order->itemes as $key =>$val )
+                   <li>
+                   <div class="d-flex justify-content-around">
+                    <div class="aside"><img src="{{asset('images/products/'.$val->image)}}" width="100px" class="img-sm border"></div>
+                    <div>
+                    <p class="title">name : {{$val['name']}} <br>
+                         quantatiy : {{$val['quantity']}}</p>
+                          <span class="text-muted">price : {{$val['price']}}$ </span><br>
+                          <span class="text-muted">subtotal : {{$val['subtotl']}}$ </span>
+                    </div>
+                   </div>
+                </li>
        
-                     <li class="col-md-4">
+                     {{-- <li style="border: red solid 2px" class="col-md-8  d-flex justify-content-around">
                          <figure class="itemside mb-3">
-                             <div class="aside"><img src="{{asset('images/products/'.$val->image)}}" class="img-sm border"></div>
-                             <figcaption class="info align-self-center">
-                                 <p class="title">name : {{$val['name']}} <br> quantatiy : {{$val['quantity']}}</p> <span class="text-muted">price : {{$val['price']}}$ </span><br><span class="text-muted">subtotal : {{$val['subtotl']}}$ </span>
-                             </figcaption>
+                            
+                           
                          </figure>
-                     </li>
+                         <div class="info align-self-center ">
+                          
+                        </div>
+                     </li> --}}
+                     
                      @endforeach
                      
                  </ul>

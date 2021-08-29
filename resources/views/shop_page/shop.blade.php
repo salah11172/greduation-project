@@ -149,7 +149,8 @@
 								<li class="product-item">
 									<div class="product product-widget-style">
 										<div class="thumbnnail">
-											<a href="" title="{{$late['description']}}">
+											<a href="{{route('indexdetails',['id'=>$late['id']])}}"
+												" title="{{$late['description']}}">
 												<figure><img src="{{asset('images/products/'.$late['image'])}}" alt=""></figure>
 											</a>
 										</div>

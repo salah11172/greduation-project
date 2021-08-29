@@ -93,10 +93,6 @@ input,textarea{
     border-radius: 0;
     outline: none;
     box-shadow: none;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    -ms-border-radius: 0;
-    -o-border-radius: 0;
 }
 
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before,
@@ -403,7 +399,7 @@ input,textarea{
 .topbar-menu-area .topbar-menu ul li a{
 	display: inline-block;
 	text-decoration: none;
-	color: red;
+	color: #666666;
 	text-transform: capitalize;
 }
 .topbar-menu-area .topbar-menu.left-menu{
