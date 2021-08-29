@@ -49,7 +49,21 @@
                                     </div>
                                     <div class="product-info">
                                         <a href="{{route('indexdetails', ['id' => $latest->id])}}" class="product-name"><span style="text-transform:uppercase;">{{$latest->name }}</span></a>
-                                        <div class="wrap-price"><span class="product-price">${{ $latest->price }}</span></div>
+                                        {{-- <div class="wrap-price"><span class="product-price">${{ $latest->price }}</span></div> --}}
+                                        <div class="wrap-price"><span class="product-price">
+            
+                                            @if($latest->spl_price == Null)
+                                                    ${{$latest->price}}
+                                                    
+                                                      @else
+                                                   
+                                                    <span style="text-decoration:line-through; color:#888">
+                                                      ${{$latest->price}} 
+                                                    </span>
+                                                      <span> ${{$latest->spl_price}}</span>
+                                                      @endif
+                                                      </span>
+                                        </div>
                                     </div>
                                 </div>
                                 @endforeach

@@ -8,8 +8,9 @@
 		  $( "#slider-range" ).slider({
 				range: true,
 				min: 0,
-				max: 20,
-				values: [ 0, 20],
+				max: 1000,
+				step:10,
+				values: [ 0,500],
 				slide: function( event, ui ) {
 					$( "#amount_start" ).val( ui.values[0] );
 					$( "#amount_end" ).val( ui.values[1] );
@@ -66,13 +67,28 @@
 									<div class="product-info">
 										<a href="{{route('details_page.details', ['detail' => $product->id])}}" class="product-name"><span>{{ $product->name }}</span></a>
 										<div class="wrap-price" style="height:6rem;">{{ $product->description }}</div>
-										<div class="wrap-price"><span class="product-price">${{ $product->price }}</span></div>
+										<div class="wrap-price"><span class="product-price">
+										@if($product->spl_price == Null)	
+										${{ $product->price}} 
+										@else
+										<span style="text-decoration:line-through;color:#888">
+										${{$product->price}}
+										</span>
+										${{$product->spl_price}} 
+										@endif
+										
+										
+										</span></div>
 										@if ($product->quantity != 0)
 										<form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
 											@csrf
 											<input type="hidden" value="{{ $product->id }}" name="id">
 											<input type="hidden" value="{{ $product->name }}" name="name">
-											<input type="hidden" value="{{ $product->price }}" name="price">
+											@if( $product->spl_price == 0)
+											<input type="hidden" value= "{{ $product->price }}" name="price">
+											@else
+											<input type="hidden" value= "{{ $product->spl_price }}" name="price">
+											@endif
 											<input type="hidden" value="{{ $product->image }}"  name="image">
 											<input type="hidden" value="1" name="quantity">
 											<button class="btn add-to-cart"><span class="carts" style="color: #888888">Add To Cart</span></button>
