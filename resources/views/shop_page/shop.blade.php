@@ -218,5 +218,8 @@
 
 		})
 	</script>
+	<div style="margin-left: 50%;font-size: large;" >
+	    {!! $productdata->links("pagination::bootstrap-4"	) !!}
+	</div>
 	
 @endsection

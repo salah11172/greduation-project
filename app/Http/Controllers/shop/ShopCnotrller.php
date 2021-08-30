@@ -27,14 +27,14 @@ class ShopCnotrller extends Controller
     public function getcategoryproduct($categoryid)
     {
                $data=Category::all();
-                $product=Product::where("categort_id",$categoryid)->get();
+                $product=Product::where("categort_id",$categoryid)->paginate(6);
                 $latest = Product::orderBy('created_at','desc')->take(2)->get();
 
             return view("shop_page.shop",["productdata"=>$product,"dervieddata"=>$data,"latest"=>$latest]);
     }
    public function serach(request $req)
    {
-      $product= Product::where("name","like","%$req->search%")->get();
+      $product= Product::where("name","like","%$req->search%")->paginate(6);    
       $data=Category::all();
       $latest = Product::orderBy('created_at','desc')->take(2)->get();
 
@@ -48,7 +48,7 @@ class ShopCnotrller extends Controller
    }
    public function filter(Request $req)
    {
-       $product=Product::whereBetween('price',[$req->start_price,$req->end_price])->get();
+       $product=Product::whereBetween('price',[$req->start_price,$req->end_price])->paginate(15);
        $data=Category::all();
        $latest = Product::orderBy('created_at','desc')->take(2)->get();
 

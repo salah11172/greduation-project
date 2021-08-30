@@ -35,6 +35,7 @@
         <td><form method="POST" action="{{route('updatestatus',["orderid"=>$order['id']])}}">
             @csrf
             <select name="status">
+              
             <option value="pending">pending</option>
             <option value="dispatched">dispatched</option>
             <option value="processed">processed</option>
