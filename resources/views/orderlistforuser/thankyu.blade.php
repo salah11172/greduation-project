@@ -11,14 +11,14 @@
   <style>
     @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 
-body {
+/* body {
     background-color: #eeeeee;
     font-family: 'Open Sans', serif
-}
+} */
 
 .container {
-    margin-top: 50px;
-    margin-bottom: 50px
+    /* margin-top: 50px;
+    margin-bottom: 50px */
 }
 
 .card {
@@ -166,13 +166,20 @@ p {
   </style>
 </head>
 <body>
-   <h3 style="color: red"> see your delivered history orderes <a href="{{route("getsucessfuloreders")}}">click here </a> </h3>
+    @if (count($data)==0)
+    <h1 style="text-align: center ;padding:50px">Sorry, You Don't Have Order Yet</h1>
+    <div style="text-align: center ;color:red" class="checkout-info ">
+        <a class="link-to-shop" href="{{route('shopproduct')}}">Continue Shopping<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+    </div>
+        
+    @else
+    <a href="{{route("getsucessfuloreders")}}"><h3 style="color: red;margin-left: 200px" > delivered orderes <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>  </h3></a> 
   @if(count($data)>0)
 <div class="container">
  <div> <h1 style="margin-left: 400px">processing orderes<h1></div>
   @foreach ( $data as $order )
   <article class="card">
-      <div class="card-body">
+      <div class="card-body" style="border: solid rgb(124, 119, 119,0.5) 1px;background-color:rgb(246,248,250)">
           <article class="card">
               <div class="card-body row">
                 <div class='col-lg-4'><h4> order number : {{$order['id']}}</h4></div>
@@ -249,7 +256,7 @@ p {
 
 
 @endif
-
+@endif
 
 </body>
 </html>
