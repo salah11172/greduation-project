@@ -30,14 +30,18 @@
                         <div class="short-desc">
                             {{ $Product->description }}
                         </div>
-                        <div class="wrap-social">
+                        {{-- <div class="wrap-social">
                             <a class="link-socail" href="#"><img src="/images/social-list.png" alt=""></a>
-                        </div>
+                        </div> --}}
                         <div class="wrap-price">
                             <span class="product-price">
-                            @if ($Product['quantity'] < 2)
-                            ${{$Product['price']*0.5}}
-                                
+                            @if ($Product['quantity'] <= 2)
+                            {{-- ${{$Product['price']*0.5}} --}}
+                            <div class="wrap-price"><span class="product-price" style="color: red">${{$Product['price']*.5}}</span></div>
+                            <div class="wrap-price"><span class="product-price" style="text-decoration:line-through;">${{$Product['price']}}</span></div>
+                                @else
+                                <div class="wrap-price"><span class="product-price">${{ $Product->price }}</span></div>
+
                             @endif
                            </span>
                     </div><br>

@@ -166,6 +166,7 @@ p {
   </style>
 </head>
 <body>
+    <a href="{{route("getsucessfuloreders")}}"><h3 style="color: red;margin-left: 200px" > delivered orderes <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>  </h3></a> 
     @if (count($data)==0)
     <h1 style="text-align: center ;padding:50px">Sorry, You Don't Have Order Yet</h1>
     <div style="text-align: center ;color:red" class="checkout-info ">
@@ -173,7 +174,7 @@ p {
     </div>
         
     @else
-    <a href="{{route("getsucessfuloreders")}}"><h3 style="color: red;margin-left: 200px" > delivered orderes <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>  </h3></a> 
+    {{-- <a href="{{route("getsucessfuloreders")}}"><h3 style="color: red;margin-left: 200px" > delivered orderes <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>  </h3></a>  --}}
   @if(count($data)>0)
 <div class="container">
  <div> <h1 style="margin-left: 400px">processing orderes<h1></div>

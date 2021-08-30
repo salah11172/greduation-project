@@ -32,6 +32,7 @@
         <td>{{$order['order-date']}}</td>
         <td>{{$order['user_id']}}</td>
         <td>{{$order['status']}}</td>
+    
         <td><form method="POST" action="{{route('updatestatus',["orderid"=>$order['id']])}}">
             @csrf
             <select name="status">
@@ -43,6 +44,7 @@
             <option value="delivered">delivered</option>
           </select>
           <input class="btn alert-dark"  type="submit" value="update">
+   
         </form></td>
          
 

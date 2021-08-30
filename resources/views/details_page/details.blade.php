@@ -40,8 +40,8 @@
                                       @else
                                       <h2 style="color:red">It Is On Sale</h2><br>
                                     <b style="text-decoration:line-through; color:#ddd">
-                                      ${{$Product->price}} </b>
-                                       ${{$Product->spl_price}}
+                                      ${{$Product->price}} </b><br><br>
+                                      <span style="color: red"> ${{$Product->spl_price}}</span>
                                        <input type="hidden" value="{{$Product->spl_price}}"
                                         name="newPrice"/>
                                         

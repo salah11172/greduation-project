@@ -55,6 +55,7 @@
         <th scope="col">On Sale</th>
         <th scope="col">quantity</th>
         <th scope="col">category_name</th>
+        
       </tr>
     </thead>
     

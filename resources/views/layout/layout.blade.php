@@ -233,7 +233,7 @@
 								<span>  </span>
 
 								@endif
-								<span style="color:white"> {{session('LoggedUser')}}</span>
+								{{-- <span style="color:white"> {{session('LoggedUser')}}</span> --}}
 								
 								
 									
