@@ -163,16 +163,30 @@ p {
     border-color: #ff2b00;
     border-radius: 1px
 } */
+<style>
+    .move{
+        position: relative;
+        top: 100px;
+        right: ;
+
+    
+    }
   </style>
 </head>
 <body>
+    @if (count($sucessfulorders)==0)
+    <h1 style="text-align: center ;padding:50px">Sorry, You Don't Have Successful Order Yet</h1>
+    <div style="text-align: center ;color:red" class="checkout-info ">
+        <a class="link-to-shop" href="{{route('shopproduct')}}">Continue Shopping<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+    </div>
+    @else
 @if (count($sucessfulorders)>0)
-<div > <h1 style="margin-left:600px">delviered orders <h1></div>
+<div > <h1 style="margin-left:600px;margin-top:60px">delviered orders <h1></div>
     <div  class="container">
          @foreach ( $sucessfulorders as $order )
-         <article class="card" style="border: solid black 3px">
+         <article class="card"style="border: solid rgb(124, 119, 119,0.5) 1px;background-color:rgb(246,248,250)">
              <div class="card-body">
-                 <article class="card">
+                 <article  class="card">
                      <div class="card-body row">
                        <div class='col-lg-4'><h4> order number : {{$order['id']}}</h4></div>
                        <div class='col-lg-4'><h4> total_price : {{$order['totalprice']}}</h4></div>
@@ -183,19 +197,27 @@ p {
                      
 
                  <hr>
-                 <ul class="row">
+                 <div class="row">
                    @foreach ($order->itemes as $key =>$val )
-                   <li>
-                   <div class="d-flex justify-content-around">
-                    <div class="aside"><img src="{{asset('images/products/'.$val->image)}}" width="100px" class="img-sm border"></div>
-                    <div>
-                    <p class="title">name : {{$val['name']}} <br>
-                         quantatiy : {{$val['quantity']}}</p>
-                          <span class="text-muted">price : {{$val['price']}}$ </span><br>
-                          <span class="text-muted">subtotal : {{$val['subtotl']}}$ </span>
+                   
+                  <style>
+                      h1{margin-left: 100px;
+                    display:inline;}
+                  </style>
+      
+                      <div style=" margin-left: 100px" >
+                        <img src="{{asset('images/products/'.$val->image)}}" width="100px"  >
+                        <div class="move" style="width:100px;display:inline " >
+                         <div class="title m-5"><strong>Name</strong> : {{$val['name']}} </div>
+                         <div class="title m-5">  <strong>quantatiy</strong> : {{$val['quantity']}}</div>
+                          <div class="title m-5"> <strong>price</strong> : {{$val['price']}}$ </div>
+                          <div class="title m-5"> <strong>subtotal </strong>: {{$val['subtotl']}}$ </div>
+                        </div>
+                          
                     </div>
                    </div>
-                </li>
+                   
+               
        
                      {{-- <li style="border: red solid 2px" class="col-md-8  d-flex justify-content-around">
                          <figure class="itemside mb-3">
@@ -209,7 +231,7 @@ p {
                      
                      @endforeach
                      
-                 </ul>
+             
                 
              </div>
          </article>
@@ -219,6 +241,7 @@ p {
        </div>
        <hr>
        <hr>
+       @endif
        @endif
        <br>
 </body>

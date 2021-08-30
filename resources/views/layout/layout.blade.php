@@ -133,8 +133,15 @@
 								<a href="{{route('cart.list')}}" class="link-direction">
 									<i class="fa fa-shopping-basket" aria-hidden="true" id="shake-top"></i>
 									<div class="left-info">
-										<span class="index">{{ Cart::getTotalQuantity()}} items</span>
+										@if (session('LoggedUser') >= 1)
+											
+										<span class="index">{{$cartTotalQuantity = Cart::session(session('LoggedUser'))->getTotalQuantity();}} items</span>
+										@else
+										<span class="index">0 items</span>
+										@endif
 										<span class="title">@lang('auth.cart')</span>
+										{{-- {{$userID = session('LoggedUser'); }} --}}
+									{{-- <h1>	{{$cartTotalQuantity = Cart::session(session('LoggedUser'))->getTotalQuantity();}}<h1> --}}
 									</div>
 								</a>
 							</div>
@@ -216,9 +223,12 @@
 									<a href="{{route('about_us.about')}}" class="link-term mercado-item-title">@lang('auth.about')</a>
 								</li>	
 								@if( session()->get('LoggedUser') >= 1 )
-								<li class="menu-item">
+								<li class="menu-item" >
 									<a href="{{route('trackordersforuser')}}" class="link-term mercado-item-title">@lang('auth.order')</a>
 								</li>
+								
+							
+								
 								@else 
 								<span>  </span>
 
