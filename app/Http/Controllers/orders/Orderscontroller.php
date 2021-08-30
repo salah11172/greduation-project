@@ -5,6 +5,7 @@ namespace App\Http\Controllers\orders;
 use App\Http\Controllers\Controller;
 use App\Models\Item;
 use App\Models\Order;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class Orderscontroller extends Controller
@@ -50,7 +51,15 @@ class Orderscontroller extends Controller
                    "subtotl"=>$val->getPriceSum(),
                    "order_id"=>$order->id,
                    "image"=>$val->attributes['image'],
+
                 ]);
+
+
+            }
+            foreach(\Cart::session($userID)->getContent() as $index =>$val)
+            {
+                Product::where("name", $val['name'] )->decrement('quantity',$val['quantity']);
+
             }
 
             \Cart::session($userID)->clear();

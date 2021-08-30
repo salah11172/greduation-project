@@ -30,9 +30,7 @@
                         <div class="short-desc">
                             {{ $Product->description }}
                         </div>
-                        <div class="wrap-social">
-                            <a class="link-socail" href="#"><img src="/images/social-list.png" alt=""></a>
-                        </div>
+                        
                         <div class="wrap-price"><span class="product-price">
                             <!-- ${{ $Product->price }} -->
                             @if($Product->spl_price ==0)
@@ -63,6 +61,7 @@
 
 
                         <div class="stock-info in-stock">
+                            
                             <p class="availability">Availability: <b>{{ $Product->quantity }}</b></p>
                         </div>
                         @if ($Product->quantity != 0)
